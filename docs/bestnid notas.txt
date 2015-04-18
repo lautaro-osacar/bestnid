@@ -1,0 +1,64 @@
+
+hay un blog existente.
+
+-x-x-x-x-x-x-x--x-x-x-x-x-x-x-x-x-x--x-x-x
+
+User Anonimo 	-> registrarse
+		-> hacer busquedas
+		-> navegar
+
+User Registrado	-> ofertar
+		-> publicar
+		-> cambiar datos de perfil
+		-> consultar perfil, subastas y ofertas
+
+Admin 		-> manejar permisos y grupos
+		-> dar de baja subastas
+
+-x-x-x-x-x-x-x--x-x-x-x-x-x-x-x-x-x--x-x-x
+
+Subasta:
+	La subasta dura 30 dias
+	El usuario puede tener mas de una subasta
+	El usuario puede cancelar la subasta
+	El usuario debe elegir el ganador de la subasta dentro de una semana
+	El subastador solamente ve la necesidad
+	No hay cantidad de productos (stock)
+	El subastador recibe un mail por cada oferta
+	La información de los usuarios es anónima (se le manda un mail cuando termina con la info)
+	Hay un sistema de preguntas y respuestas dentro de la publicación
+	Info de publicacion:
+		-Categoría
+		-3 Fotos opicionales
+		-Descripción
+	Se le manda un mail por cada pregunta (baja prioridad)
+	El pago es automático cuando termina la subasta
+	La subasta tiene estado ACTIVO/INACTIVO
+	Cuando la subasta finaliza sin ganador queda como INACTIVA y se puede ACTIVAR nuvamente
+	
+
+-x--x-x-x-x-x-x-x--x-x-x-x-x-x-x-x-x-x-x-x
+
+Ofertas:
+	El usuario oferta con una necesidad y un monto
+	El usuario que oferta no puede ver historial de necesidades
+	El usuario que oferta recibe un mail cuando el subastador elije el ganador
+	Monto mínimo al ofertar la subasta es siempre $1.
+
+-x--x-x-x-x-x-x-x--x-x-x-x-x-x-x-x-x-x-x-x
+
+
+Busquedas:
+	Filtro por una o mas categorías
+	
+	
+		
+
+
+	 
+
+
+		
+
+
+
