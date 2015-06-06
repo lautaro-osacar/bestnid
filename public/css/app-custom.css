@@ -1,0 +1,39 @@
+.logo-text{
+	margin-left: -20px;
+}
+
+.logo-img{
+	max-width:50px; 
+	margin-top: -10px;
+	SOMBRA
+	box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+}
+
+.contenido{
+	margin-left: 10px;
+}
+
+/* Centrado de la barra de busqueda*/
+.navbar-center
+{
+    margin-left: 25%;
+}
+
+/* Al poner el navbar como fijo, el texto del body se sube (hay que bajarlo) */
+body { padding-top: 70px; }
+
+/* Para centrar el texto de la barra de busqueda */
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-align: center;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-align: center;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ but I'm not sure about working */
+    text-align: center;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-align: center;
+}
