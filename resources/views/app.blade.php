@@ -9,6 +9,7 @@
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/app-custom.css') }}" rel="stylesheet">
 
+
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -49,10 +50,11 @@
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
 						<li><a href="{{ url('/auth/register') }}" style="color:#F0291D">Registrarse</a></li>
 					@else
-						<li><a href="{{ url('#') }}" style="color:#F0291D">Subastar</a></li>
+						<li><a href="{{ url('/subasta/create') }}" style="color:#F0291D">Subastar</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+								<li><a href="{{ url('/perfil/subastas') }}">Mi Perfil</a></li>
 								<li><a href="{{ url('/auth/logout') }}">Cerrar sesión</a></li>
 							</ul>
 						</li>
@@ -69,5 +71,12 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<link href="http://hayageek.github.io/jQuery-Upload-File/uploadfile.min.css" rel="stylesheet">
+	<script src="http://hayageek.github.io/jQuery-Upload-File/jquery.uploadfile.min.js"></script>
+	<script src="{{ asset('/js/fileinput.min.js') }}"></script>
+	<link href="{{ asset('/css/fileinput.min.css') }}" rel="stylesheet">
+	<script src="{{ asset('/js/fileinput_locale_es.js') }}"></script>
+	<script type="text/javascript" src="http://markusslima.github.io/bootstrap-filestyle/js/bootstrap-filestyle.min.js"> </script>
+
 </body>
 </html>

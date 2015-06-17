@@ -47,6 +47,7 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+
 Route::post('/servicios/getCiudad', function(){     
     
     //Validaciones sobre el id de la provincia   
@@ -64,3 +65,8 @@ Route::post('/servicios/getCiudad', function(){
     }
 
 });
+
+Route::resource('subasta', 'SubastaController');
+
+Route::get('perfil/subastas','SubastaController@index');
+

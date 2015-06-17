@@ -8,8 +8,8 @@ class Ciudad extends Model {
 
 	protected $fillable = ['nombre','provincia_id'];
 
-	public function ciudad(){
-		return $this->hasOne('App\Provincia');
+	public function provincia(){
+		return $this->belongsTo('App\Provincia');
 	}
 
 }

@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG', false),
+	'debug' => env('APP_DEBUG', true),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -147,6 +147,8 @@ return [
 
 		'Illuminate\Html\HtmlServiceProvider',
 
+		'Matriphe\Imageupload\ImageuploadServiceProvider'
+
 	],
 
 	/*
@@ -196,6 +198,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'		=> 'Illuminate\Html\FormFacade', 
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
+		'Imageupload' => 'Matriphe\Imageupload\ImageuploadFacade'
 
 	],
 

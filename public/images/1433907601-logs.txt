@@ -1,0 +1,24 @@
+	
+
+C:\Users\maurgarc\Desktop\JK\pokerserver\cubeia\cubeia-cubeia-poker-agpl-b40a0e03d981\server\service\backend-service\backend-service-cubeia-wallet-adapter\src\main\java\com\cubeia\backend\firebase
+	
+CashGamesBackendAdapter	
+197
+	@Override
+    public void closeSession(CloseSessionRequest request) {
+     
+        //com.cubeia.backoffice.accounting.api.Money amountDeposited = walletService.endSessionAndDepositAll(LICENSEE_ID, sessionAccountId,"session ended by game " + GAME_ID + ", player id = " + sid.playerId);
+
+        //log.debug("wallet session {} closed for player {}, amount deposited: {}", new Object[]{sessionAccountId, sid.playerId, amountDeposited});
+    }
+	
+	
+C:\Users\maurgarc\Desktop\JK\pokerserver\cubeia\cubeia-cubeia-poker-agpl-b40a0e03d981\server\service\backend-service\backend-service-cubeia-wallet-adapter\src\test\java\com\cubeia\backend\firebase
+
+
+
+CashGamesBackendAdapterTest
+158
+    public void testCloseSession() {
+	//  verify(walletService).endSessionAndDepositAll(Mockito.eq(LICENSEE_ID), Mockito.eq(sessionId), Mockito.anyString());
+

@@ -32,9 +32,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
 
 
-	public function tarjeta()
-    {
-        return $this->hasOne('App\Tarjeta');
+	public function tarjeta(){
+        return $this->belongsTo('App\Tarjeta');
     }
+
+    public function ciudad(){
+    	return $this->belongsTo('App\Ciudad');
+    }
+
 
 }

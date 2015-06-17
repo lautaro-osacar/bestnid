@@ -21,6 +21,7 @@ function cargar_ciudades(){
             $("[name='ciudad_id']").empty();            
 
             $.ajax({
+                
                     type: "POST",
                     dataType: "json",
                     url : "/servicios/getCiudad",

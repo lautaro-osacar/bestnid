@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->string('domicilio');
 			$table->integer('tarjeta_id')->unsigned();
-			
 			$table->integer('ciudad_id')->unsigned();
 			
 			$table->rememberToken();

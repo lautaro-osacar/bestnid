@@ -1,0 +1,1 @@
+Resolver problema con tamaño de imagen, verificar validez imagenes
