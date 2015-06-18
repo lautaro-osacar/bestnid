@@ -38,9 +38,9 @@
 					<li><a href="{{ url('/') }}">Bestnid</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-center no-collapse">
-				 	<form class="navbar-form navbar-left" role="search">
+				 	<form action="/busqueda" class="navbar-form navbar-left" role="search">
 			        	<div class="form-group">
-			          	<input style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
+			          	<input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
 			        	</div>
 			        	<button type="submit" class="btn btn-default">Buscar</button>
 			      </form>

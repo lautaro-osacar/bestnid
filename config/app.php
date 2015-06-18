@@ -147,8 +147,6 @@ return [
 
 		'Illuminate\Html\HtmlServiceProvider',
 
-		'Matriphe\Imageupload\ImageuploadServiceProvider'
-
 	],
 
 	/*
@@ -198,7 +196,6 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'		=> 'Illuminate\Html\FormFacade', 
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
-		'Imageupload' => 'Matriphe\Imageupload\ImageuploadFacade'
 
 	],
 

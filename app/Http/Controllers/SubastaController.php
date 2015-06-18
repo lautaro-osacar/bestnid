@@ -82,16 +82,18 @@ class SubastaController extends Controller {
 		return redirect('/');
 	}
 
+	public function find(Request $request){
+		$subastas= Subasta::where('titulo', 'like', $request->get('busqueda_subasta'))->get();
+		//sdd($subastas);
+		return view('subastas.find', compact("subastas"));
+	}
+
 	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
