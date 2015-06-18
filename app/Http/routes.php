@@ -74,9 +74,5 @@ Route::get('perfil/subastas','SubastaController@index');
 Route::get('perfil/datos',function(){
     return view('perfil.datos');
 });
+
 Route::get('/busqueda', 'SubastaController@find');
-
-Route::get('testing',function(){
-});
-
-
