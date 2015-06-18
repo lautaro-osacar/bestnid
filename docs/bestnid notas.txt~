@@ -33,11 +33,7 @@ Subasta:
 		-Descripción
 	Se le manda un mail por cada pregunta (baja prioridad)
 	El pago es automático cuando termina la subasta
-	La subasta tiene estados:
-		-ACTIVA: Aparece en la busqueda, se puede ofertar, se puede elegir oferta ganadora, se puede cancelar
-		-PENDIENTE: (se termino mes de activa) Se puede elegir oferta ganadora y se puede cancelar
-		-FINALIZADA: (se eligio oferta ganadora) no se puede hacer nada
-		-INACTIVA: (se cancelo) se puede reactivar, cuando se reactiva se borran las ofertas y se reinicia el tiempo
+	La subasta tiene estado ACTIVO/INACTIVO
 	Cuando la subasta finaliza sin ganador queda como INACTIVA y se puede ACTIVAR nuvamente
 	
 

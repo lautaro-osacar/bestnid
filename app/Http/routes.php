@@ -1,5 +1,6 @@
 <?php
 use App\Ciudad;
+use App\Subasta;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,4 +70,12 @@ Route::post('/servicios/getCiudad', function(){
 Route::resource('subasta', 'SubastaController');
 
 Route::get('perfil/subastas','SubastaController@index');
+
+Route::get('perfil/datos',function(){
+    return view('perfil.datos');
+});
+
+Route::get('testing',function(){
+});
+
 

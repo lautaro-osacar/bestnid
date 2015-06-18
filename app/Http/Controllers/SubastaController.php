@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Guard;
 use App\Foto;
 use App\Categoria;
 use App\Subasta;
@@ -21,9 +22,10 @@ class SubastaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Guard $guard)
 	{
-		return view('perfil.perfil');
+		$mis_subastas = Subasta::where('user_id','=', $guard->id())->orderBy('descripcion','created_at')->get();
+		return view('perfil.subastas',compact('mis_subastas'));
 	}
 
 	/**

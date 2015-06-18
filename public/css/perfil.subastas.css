@@ -1,0 +1,11 @@
+.subastas-table > tbody > tr > td {
+  border: 1px solid #dddddd;
+  border-right-width:0px;
+  border-left-width:0px;
+  text-align: center;
+}
+
+.subastas-table > tbody > tr > td{
+	text-align: center;
+}
+

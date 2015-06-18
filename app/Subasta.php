@@ -16,4 +16,8 @@ class Subasta extends Model {
         return $this->belongsTo('App\Categoria');
     }
 
+    public function fotos(){
+    	return $this->hasMany('App\Foto');
+    }
+
 }

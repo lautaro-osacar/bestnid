@@ -1,7 +1,8 @@
 div#navigation {
   float: left;
   width: 15%;
-  padding-top:27px;
+  height: 100%;
+  padding-top:28px;
 }
 
 div#perfil-contenido{
@@ -11,6 +12,10 @@ div#perfil-contenido{
   padding-right: 50px;
 }
 
-.table-bordered > tbody > tr > td{
+.menu-table > tbody > tr > td{
   padding: 15px;
+}
+
+.link{
+  color: #333333
 }
