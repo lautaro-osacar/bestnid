@@ -43,7 +43,7 @@
 			          	<input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
 			        	</div>
 			        	<button type="submit" class="btn btn-default">Buscar</button>
-			      </form>
+			      	</form>
 			     </ul>
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
