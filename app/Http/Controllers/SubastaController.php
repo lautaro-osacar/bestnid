@@ -87,6 +87,10 @@ class SubastaController extends Controller {
 		//sdd($subastas);
 		return view('subastas.find', compact("subastas"));
 	}
+	public function show(Subasta $subasta){
+
+		return view('subastas.subasta', compact("subasta", "fotos"));
+	}
 
 	/**
 	 * Display the specified resource.

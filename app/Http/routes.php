@@ -75,4 +75,12 @@ Route::get('perfil/datos',function(){
     return view('perfil.datos');
 });
 
+
 Route::get('/busqueda', 'SubastaController@find');
+
+Route::bind('subasta', function($id){
+        return App\Subasta::where('id', $id)->first();
+ });
+Route::get('subastas/{subasta}','SubastaController@show');
+
+
