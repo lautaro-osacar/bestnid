@@ -5,7 +5,8 @@
 	<div class="row">
 		<div class="container">
 			<div class="page-header">
-					<center><h1>Subastas por finalizar</h1></center>
+					<legend><center><h2>Subastas por finalizar</h2></center></legend>
+					<br>
 					<link href="{{ asset('/css/find.css') }}" rel="stylesheet">
 					<div class="container">
 					<table class="table table-hover" "col-md-3">

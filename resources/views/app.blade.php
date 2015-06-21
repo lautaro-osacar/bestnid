@@ -40,9 +40,26 @@
 				<ul class="nav navbar-nav navbar-center no-collapse">
 				 	<form action="/busqueda" class="navbar-form navbar-left" role="search">
 			        	<div class="form-group">
-			        	{!! Form::select('categoria',array_merge(array('0'=>'Seleccionar'),$categorias), Input::old('categoria')) !!}
+			        		<div class="input-group">
+						      <input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
+						      <span class="input-group-btn">
+						        <select name="categoria" class="btn">
+						          <option value="0">Categoría</option>
+						          @foreach($categorias as $key => $categoria){
+						          	<option value="{{$key}}">{{$categoria}}</option>
+						          }
+						          @endforeach
+
+						        </select>
+						      </span>
+						    </div>
+						  </div>
+					    <!-- /input-group -->			
+					    <!--
 			          	<input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
-			        	</div>
+			          	{!! Form::select('categoria',array_merge(array('0'=>'Seleccionar'),$categorias), Input::old('categoria')) !!}
+			          	-->
+			        	
 			        	<button type="submit" class="btn btn-default">Buscar</button>
 			      	</form>
 			     </ul>
