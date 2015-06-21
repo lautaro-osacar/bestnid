@@ -9,7 +9,7 @@
 
 	<div class="container">
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
-	  	<div id="galeria">
+	  	<div id="lado-izq">
 			<div id="gal1-principal">
 				<img id="zoom_01" src="{{ $subasta->fotos[0]->filePath }}" data-zoom-image="{{ $subasta->fotos[0]->filePath }}"/>
 			</div>
@@ -21,9 +21,12 @@
 			@endforeach
 			</div>
 		</div>
-			<h4>{{ $subasta->descripcion }}</h4>
+		<div id="lado-der">
+			<div id="ofertar">
+				<a href="#" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn">Ofertar</a>
+			</div>
+			{{ $subasta->descripcion }}
 		</div>
-
 	</div>
 
 
