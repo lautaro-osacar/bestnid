@@ -1,0 +1,17 @@
+#gal1 img{
+	border:2px solid white;
+	height:90px;
+}
+
+#gal1-principal img{
+	border:2px solid white;
+	height:300px;
+}
+
+.active img{border:2px solid #333 !important;}
+
+#galeria{
+	width: 60%;
+	border-style: solid;
+	border-width: 1px;
+}
