@@ -77,6 +77,7 @@
 	<link href="{{ asset('/css/fileinput.min.css') }}" rel="stylesheet">
 	<script src="{{ asset('/js/fileinput_locale_es.js') }}"></script>
 	<script type="text/javascript" src="http://markusslima.github.io/bootstrap-filestyle/js/bootstrap-filestyle.min.js"> </script>
+	<script src="{{ asset('/js/elevatezoom-master/jquery.elevatezoom.js') }}"></script>
 
 </body>
 </html>
