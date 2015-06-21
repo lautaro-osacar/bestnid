@@ -83,7 +83,14 @@ class SubastaController extends Controller {
 	}
 
 	public function find(Request $request){
-		$subastas= Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')->get();
+		if ($request->get('categoria') == '0') {
+			$subastas= Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')->get();
+		} 
+		else{
+			$subastas=Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')
+								->where('categoria_id', '=', $request->get('categoria'))->get();
+		} 
+		
 		return view('subastas.find', compact("subastas"));
 	}
 
