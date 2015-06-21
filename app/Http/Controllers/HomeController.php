@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use App\Subasta;
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +30,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$subastas= Subasta::orderBy('fecha_fin')->take(4)->get();
+		return view('home', compact('subastas'));
 	}
 
 }
