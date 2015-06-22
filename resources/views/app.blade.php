@@ -45,11 +45,9 @@
 						      <span class="input-group-btn">
 						        <select name="categoria" class="btn">
 						          <option value="0">Categoría</option>
-						          @foreach($categorias as $key => $categoria){
+						          @foreach($categorias as $key => $categoria)
 						          	<option value="{{$key}}">{{$categoria}}</option>
-						          }
 						          @endforeach
-
 						        </select>
 						      </span>
 						    </div>

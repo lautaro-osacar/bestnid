@@ -1,3 +1,4 @@
-select[name="categoria"]{
-  margin-top: 5px;
+#cat-create {
+	border-color: #ccc;
+
 }

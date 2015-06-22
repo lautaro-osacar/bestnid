@@ -52,7 +52,12 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Categoría</label>
 							<div class="col-md-6">
-								  {!! Form::select('categoria',array_merge(array('0'=>'Seleccionar'),$categorias), Input::old('categoria')) !!}
+								<select name="categoria" class="btn" id="cat-create">
+						          	<option value="0">Seleccionar</option>
+						          	@foreach($categorias as $key => $categoria)
+						          		<option value="{{$key}}">{{$categoria}}</option>
+						          	@endforeach
+						        </select>
 							</div>
 						</div>
 						<br>
