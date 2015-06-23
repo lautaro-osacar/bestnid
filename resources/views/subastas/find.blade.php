@@ -8,7 +8,7 @@
 			@foreach($subastas as $subasta)
 				<tr class="active">
 					<td>
-						@if (!empty($subasta->fotos))
+						@if (count($subasta->fotos)>0)
 							<img src="{{ $subasta->fotos[0]->filePath}}" alt="" class="col-md-3" height='150px'>
 						@else
 							<img src="/images/sin foto.gif" alt="" class="col-md-3" height='150px'>
