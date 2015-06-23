@@ -66,6 +66,7 @@ class SubastaController extends Controller {
 		$subasta->save();
 		
 		//Creo fotos
+		$images = Array();
 		if($request->hasFile('imagen1')) $images[] = $request->file('imagen1');
 		if($request->hasFile('imagen2')) $images[] = $request->file('imagen2');
 		if($request->hasFile('imagen3')) $images[] = $request->file('imagen3');
