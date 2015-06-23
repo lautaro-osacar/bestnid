@@ -28,10 +28,16 @@
 		<div id="lado-der">
 			<div id="ofertar">
 				<a href="#ventana1" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal">Ofertar</a>
-				<div class="ofertar">
-					@yield('ofertar')
+				<div class="modal fade" id="ventana1">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								@include('subastas.ofertar')
+							</div>
+						</div>
+					</div>
 				</div>
-				
+
 			</div>
 			{{ $subasta->descripcion }}
 		</div>

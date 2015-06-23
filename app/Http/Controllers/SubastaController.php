@@ -83,20 +83,33 @@ class SubastaController extends Controller {
 		return redirect('/');
 	}
 
+
+	/**
+	* Realiza la busqueda de subastas (filtro por nombre y categoria)
+	* @param Request request
+	* @return Array suabastas
+	**/
 	public function find(Request $request){
+		//Si no se elije categoria, filtra solo por nombre
 		if ($request->get('categoria') == '0') {
 			$subastas= Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')->get();
 		} 
+		//Si se selecciono categoria agrego filtro de categoria
 		else{
 			$subastas=Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')
 								->where('categoria_id', '=', $request->get('categoria'))->get();
 		} 
-		
+
 		return view('subastas.find', compact("subastas"));
 	}
 
+	/**
+	* Realiza la busqueda de subastas (filtro por nombre y categoria)
+	* @param Subasta subasta
+	* @return Array suabasta
+	**/
 	public function show(Subasta $subasta){
-		return view('subastas.subasta', compact("subasta", "fotos"));
+		return view('subastas.subasta', compact("subasta"));
 	}
 
 
