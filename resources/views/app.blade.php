@@ -52,12 +52,6 @@
 						      </span>
 						    </div>
 						  </div>
-					    <!-- /input-group -->			
-					    <!--
-			          	<input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
-			          	{!! Form::select('categoria',array_merge(array('0'=>'Seleccionar'),$categorias), Input::old('categoria')) !!}
-			          	-->
-			        	
 			        	<button type="submit" class="btn btn-default">Buscar</button>
 			      	</form>
 			     </ul>

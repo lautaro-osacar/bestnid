@@ -55,7 +55,7 @@
 								<select name="categoria" class="btn" id="cat-create">
 						          	<option value="0">Seleccionar</option>
 						          	@foreach($categorias as $key => $categoria)
-						          		<option value="{{$key}}">{{$categoria}}</option>
+						          		<option value="{{$key}}" {{ (Input::old("categoria") == $key ? "selected":"") }}>{{$categoria}}</option>
 						          	@endforeach
 						        </select>
 							</div>
