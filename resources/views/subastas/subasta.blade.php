@@ -11,10 +11,10 @@
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
-				@if (!empty($subastas->fotos))
+				@if (count($subasta->fotos)>0)
 					<img id="zoom_01" src="{{ $subasta->fotos[0]->filePath }}" data-zoom-image="{{ $subasta->fotos[0]->filePath }}"/>
 				@else
-					<img src="/images/sin foto.jpg" data-zoom-image="/images/sin foto.jpg"/>
+					<img src="/images/sin foto.gif" data-zoom-image="/images/sin foto.jpg"/>
 				@endif
 			</div>
 			<div id="gal1">
@@ -27,11 +27,15 @@
 		</div>
 		<div id="lado-der">
 			<div id="ofertar">
-				<a href="#ventana1" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal">Ofertar</a>
-				<div class="modal fade" id="ventana1">
-					<div class="modal-dialog modal-lg">
+				<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" data-backdrop="static">Ofertar</a>
+				<div class="modal fade" id="oferta-modal">
+					<div class="modal-dialog modal-lg" id="oferta-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
+								 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								 <h5 class="modal-title" id="myModalLabel">&nbsp;</h5>
+							</div>
+							<div class="modal-body">
 								@include('subastas.ofertar')
 							</div>
 						</div>

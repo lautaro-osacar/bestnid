@@ -49,14 +49,16 @@ Route::controllers([
 ]);
 
 
-Route::post('/servicios/getCiudad', function(){     
-    
+/**
+* recibe provincia_id
+* retorna Json con arreglo(error,ciudades)
+**/
+Route::post('/servicios/getCiudad', function(){         
     //Validaciones sobre el id de la provincia   
     $validator = Validator::make(Input::all(), 
         array(
             'provincia_id' => 'required|integer'
     ));        
-
     if ($validator->fails()) {
         return Response::json(array('error' => 1, 'message' => 'Error cargando provincia'));
     }
@@ -64,8 +66,8 @@ Route::post('/servicios/getCiudad', function(){
         $cities = Ciudad::where('provincia_id', '=', Input::get('provincia_id'))->get();
         return Response::json(array('error' => 0, 'cities' => $cities));
     }
-
 });
+
 
 Route::resource('subasta', 'SubastaController');
 
@@ -75,12 +77,13 @@ Route::get('perfil/datos',function(){
     return view('perfil.datos');
 });
 
-
 Route::get('/busqueda', 'SubastaController@find');
 
+Route::get('subastas/{subasta}','SubastaController@show');
 Route::bind('subasta', function($id){
         return App\Subasta::where('id', $id)->first();
  });
-Route::get('subastas/{subasta}','SubastaController@show');
+
+Route::resource('oferta','ofertaController');
 
 

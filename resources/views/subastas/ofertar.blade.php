@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -9,14 +8,14 @@
 						<div class="alert alert-danger">
 							<strong>Error!</strong>  Se encontraron problemas en los registros:<br><br>
 							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
+								@foreach ($errors->all() as $key => $error)
+									<li id="error-{{$key}}">{{ $error }}</li>
 								@endforeach
 							</ul>
 						</div>
 					@endif
 
-					{!! Form::open(['action'=>'SubastaController@store','class' => 'form-horizontal']) !!}
+					{!! Form::open(['action'=>'ofertaController@store','class' => 'form-horizontal','id' => 'formOferta']) !!}
 						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 						<legend>Nueva Oferta</legend>
 						<br>
@@ -32,19 +31,16 @@
 						    <div class="col-md-6">
 							    <div class="input-group">
 							      <div class="input-group-addon">$</div>
-							      <input type="text" class="form-control" id="monto" placeholder="">
+							      <input type="text" class="form-control" name="monto" placeholder="Pesos Argentinos">
 							      <div class="input-group-addon">.00</div>
 							    </div>
 							</div>
 						</div>
 						<br>
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Enviar
-								</button>
-							</div>
-						</div>
+						<div class="modal-footer">
+        					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        					<button type="submit" id="enviar-ofertar" class="btn btn-primary">Enviar</button>
+     					</div>
 
 					{!! Form::close() !!}
 				</div>
