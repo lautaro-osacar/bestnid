@@ -27,7 +27,11 @@
 		</div>
 		<div id="lado-der">
 			<div id="ofertar">
-				<a href="#" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn">Ofertar</a>
+				<a href="#ventana1" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal">Ofertar</a>
+				<div class="ofertar">
+					@yield('ofertar')
+				</div>
+				
 			</div>
 			{{ $subasta->descripcion }}
 		</div>
