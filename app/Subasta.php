@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Foto;
 
 class Subasta extends Model {
 
@@ -17,7 +18,7 @@ class Subasta extends Model {
     }
 
     public function fotos(){
-    	return $this->hasMany('App\Foto');
+        return $this->hasMany('App\Foto');
     }
 
 }

@@ -8,7 +8,11 @@
 			@foreach($subastas as $subasta)
 				<tr class="active">
 					<td>
-						<img src="{{ $subasta->fotos->first()->filePath}}" alt="" class="col-md-3" height='150px'>
+						@if (!empty($subasta->fotos))
+							<img src="{{ $subasta->fotos[0]->filePath}}" alt="" class="col-md-3" height='150px'>
+						@else
+							<img src="/images/sin foto.jpg" alt="" class="col-md-3" height='150px'>
+						@endif
 						<div class="titulo"> <a style="font-size:x-large" href="/subasta/{{ $subasta->id }}">{{ $subasta->titulo }}</a> </div>
 						<br>
 						<categoria>{{ $subasta->categoria->nombre}}</categoria><br>
