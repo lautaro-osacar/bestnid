@@ -11,7 +11,11 @@
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
-				<img id="zoom_01" src="{{ $subasta->fotos[0]->filePath }}" data-zoom-image="{{ $subasta->fotos[0]->filePath }}"/>
+				@if (!empty($subastas->fotos))
+					<img id="zoom_01" src="{{ $subasta->fotos[0]->filePath }}" data-zoom-image="{{ $subasta->fotos[0]->filePath }}"/>
+				@else
+					<img src="/images/sin foto.jpg" data-zoom-image="/images/sin foto.jpg"/>
+				@endif
 			</div>
 			<div id="gal1">
 			@foreach($subasta->fotos as $key => $foto)
