@@ -48,7 +48,8 @@ class SubastaController extends Controller {
 	public function store(Request $request){
 		//Hace las validaciones
 		$this->validate($request, [
-			'titulo' => 'required|max:255',
+			'titulo' => 'required|max:40',
+			'descripcion' => 'required|max:400',
 			'categoria' => 'not_in:0',
 			'imagen1' => 'image|max:500',
 			'imagen2' => 'image|max:500',

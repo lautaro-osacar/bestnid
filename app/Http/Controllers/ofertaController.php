@@ -15,7 +15,7 @@ class ofertaController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$this->middleware('auth');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class ofertaController extends Controller {
 		//Hace las validaciones
 		$this->validate($request, [
 			'necesidad' => 'required|max:255',
-			'monto' => 'required|not_in:0'
+			'monto' => 'required|integer|not_in:0'
 		]);
 
 		//Creo la oferta y la guardo en la BD
