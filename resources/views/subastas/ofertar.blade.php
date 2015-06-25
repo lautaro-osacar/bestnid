@@ -36,6 +36,9 @@
 							    </div>
 							</div>
 						</div>
+
+						<input type="hidden" value="{{$subasta->id}}" name="subasta_id">
+
 						<br>
 						<div class="modal-footer">
         					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

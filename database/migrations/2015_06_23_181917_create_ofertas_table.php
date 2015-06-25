@@ -23,6 +23,7 @@ class CreateOfertasTable extends Migration {
 			//--
 			$table->integer('monto');
 			$table->longtext('necesidad');
+			$table->boolean('leido')->default(false);
 			$table->timestamps();
 		});
 	}

@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Oferta;
 
 class ofertaController extends Controller {
 
@@ -39,6 +40,18 @@ class ofertaController extends Controller {
 			'necesidad' => 'required|max:255',
 			'monto' => 'required|not_in:0'
 		]);
+
+		//Creo la oferta y la guardo en la BD
+		$oferta = new Oferta();
+		$oferta->user_id = $request->user()->id;
+		$oferta->subasta_id = $request->get('subasta_id');
+		$oferta->monto = $request->get('monto');
+		$oferta->necesidad = $request->get('necesidad');
+		$oferta->leido = false;
+		$oferta->save();
+
+		return redirect('subasta/'.$request->get('subasta_id'));
+
 	}
 
 	/**
