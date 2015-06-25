@@ -27,7 +27,11 @@
 		</div>
 		<div id="lado-der">
 			<div id="ofertar">
-				<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" data-backdrop="static">Ofertar</a>
+				@if (Auth::guest())
+					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" disabled>Ofertar</a>
+				@else
+					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" data-backdrop="static">Ofertar</a>
+				@endif
 				<div class="modal fade" id="oferta-modal">
 					<div class="modal-dialog modal-lg" id="oferta-dialog">
 						<div class="modal-content">

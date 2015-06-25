@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Oferta;
 
 class ofertaController extends Controller {
+	
+	public function __construct(){
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +19,7 @@ class ofertaController extends Controller {
 	 */
 	public function index()
 	{
-		$this->middleware('auth');
+		//
 	}
 
 	/**
