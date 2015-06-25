@@ -42,7 +42,7 @@ class ofertaController extends Controller {
 		//Hace las validaciones
 		$this->validate($request, [
 			'necesidad' => 'required|max:255',
-			'monto' => 'required|integer|not_in:0'
+			'monto' => 'required|integer|min:1|not_in:0'
 		]);
 
 		//Creo la oferta y la guardo en la BD
