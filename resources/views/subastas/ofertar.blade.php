@@ -31,7 +31,7 @@
 						    <div class="col-md-6">
 							    <div class="input-group">
 							      <div class="input-group-addon">$</div>
-							      <input type="text" class="form-control" name="monto" placeholder="Pesos Argentinos">
+							      <input type="text" class="form-control" name="monto" placeholder="Pesos Argentinos" value="{{ old('monto') }}">
 							      <div class="input-group-addon">.00</div>
 							    </div>
 							</div>
