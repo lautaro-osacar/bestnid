@@ -24,7 +24,7 @@ class SubastaController extends Controller {
 	 */
 	public function index(Guard $guard)
 	{
-		$mis_subastas = Subasta::where('user_id','=', $guard->id())->orderBy('descripcion','created_at')->get();
+		$mis_subastas = Subasta::where('user_id','=', $guard->id())->orderBy('estado','created_at')->get();
 		return view('perfil.subastas',compact('mis_subastas'));
 	}
 
@@ -81,7 +81,7 @@ class SubastaController extends Controller {
 	        $foto->save();
 		}
 
-		return redirect('/');
+		return redirect('/subasta/'.$subasta->id)->with('status', 'La subasta ha sido creada exitosamente!');
 	}
 
 
@@ -93,11 +93,14 @@ class SubastaController extends Controller {
 	public function find(Request $request){
 		//Si no se elije categoria, filtra solo por nombre
 		if ($request->get('categoria') == '0') {
-			$subastas= Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')->get();
+			$subastas= Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')
+								->where('estado',"=",'A')
+								->get();
 		} 
 		//Si se selecciono categoria agrego filtro de categoria
 		else{
 			$subastas=Subasta::where('titulo', 'like', '%'.$request->get('busqueda_subasta').'%')
+								->where('estado',"=",'A')
 								->where('categoria_id', '=', $request->get('categoria'))->get();
 		} 
 

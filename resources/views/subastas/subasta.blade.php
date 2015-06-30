@@ -7,7 +7,15 @@
 <script src="{{ asset('/js/elevatezoom-master/jquery.elevatezoom.js') }}"></script>
 <script src="{{ asset('/js/subasta.view.js') }}"></script>
 
+
 	<div class="container">
+		<!-- MENSAJE DE SUBASTA CREADA -->
+		@if (session('status'))
+		    <div class="alert alert-success">
+        		{{ session('status') }}
+    		</div>
+		@endif
+
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
@@ -27,7 +35,7 @@
 		</div>
 		<div id="lado-der">
 			<div id="ofertar">
-				@if (Auth::guest())
+				@if (Auth::guest() or Auth::user()->id==$subasta->user_id)
 					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" disabled>Ofertar</a>
 				@else
 					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" data-backdrop="static">Ofertar</a>
