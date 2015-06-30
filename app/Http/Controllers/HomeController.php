@@ -30,8 +30,11 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$subastas = Subasta::orderBy('fecha_fin')->take(4)->get();
+		 $subastas = Subasta::where('estado', '=','A')->orderBy('fecha_fin')->take(4)->get();
 		return view('home', compact('subastas'));
 	}
 
 }
+
+
+
