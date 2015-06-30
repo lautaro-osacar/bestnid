@@ -35,7 +35,7 @@
 		</div>
 		<div id="lado-der">
 			<div id="ofertar">
-				@if (Auth::guest() or Auth::user()->id==$subasta->user_id)
+				@if (Auth::guest() or Auth::user()->id==$subasta->user_id or $subasta->estado!='A')
 					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" disabled>Ofertar</a>
 				@else
 					<a href="#oferta-modal" class="btn btn-primary btn-lg btn-danger" role="button" id="ofertar-btn" data-toggle="modal" data-backdrop="static">Ofertar</a>
