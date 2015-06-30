@@ -12,8 +12,14 @@
 		<!-- MENSAJE DE SUBASTA CREADA -->
 		@if (session('status'))
 		    <div class="alert alert-success">
-        		{{ session('status') }}
+        		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
     		</div>
+		@endif
+
+		@if ($subasta->estado != 'A')
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;&nbsp;Esta subasta no esta activa!
+			</div>
 		@endif
 
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
