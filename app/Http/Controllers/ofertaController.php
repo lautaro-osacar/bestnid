@@ -54,7 +54,7 @@ class ofertaController extends Controller {
 		$oferta->leido = false;
 		$oferta->save();
 
-		return redirect('subasta/'.$request->get('subasta_id'));
+		return redirect('/subasta/'.$request->get('subasta_id'))->with('status','La oferta ha sido enviada!');
 
 	}
 
