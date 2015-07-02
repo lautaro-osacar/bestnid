@@ -31,7 +31,7 @@ class SubastaController extends Controller {
 									left join ofertas on subastas.id = ofertas.subasta_id
 									where subastas.user_id='. $guard->id().'
 									group by subastas.id
-									order by cant_ofertas desc, created_at');
+									order by cant_ofertas desc, estado desc');
 
 		return view('perfil.subastas',compact('mis_subastas'));
 	}

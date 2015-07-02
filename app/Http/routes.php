@@ -2,7 +2,6 @@
 use App\Ciudad;
 use App\Subasta;
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -49,7 +48,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-
 /**
 * recibe provincia_id
 * retorna Json con arreglo(error,ciudades)
@@ -74,6 +72,8 @@ Route::resource('subasta', 'SubastaController');
 
 Route::get('perfil/subastas','SubastaController@index');
 
+Route::get('perfil/subastas/{subasta}/ofertas','ofertaController@index');
+
 Route::get('perfil/datos',function(){
     return view('perfil.datos');
 });
@@ -86,5 +86,9 @@ Route::bind('subasta', function($id){
  });
 
 Route::resource('oferta','ofertaController');
+
+
+
+
 
 

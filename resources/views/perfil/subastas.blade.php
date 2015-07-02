@@ -25,7 +25,7 @@
 				<td>{{$subasta->created_at}}</td>
 				<td>{{$subasta->fecha_fin}}</td>
 				<td>{{$subasta->cant_ofertas}}</td>
-				<td><a href="#" class="btn btn-primary" role="button">Ver Ofertas</a></td>
+				<td><a href="/perfil/subastas/{{$subasta->id}}/ofertas/" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 				<td><a href="#" class="btn btn-primary" role="button">Cancelar</a></td>
 			</tr>
 		@endforeach

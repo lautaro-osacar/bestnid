@@ -22,6 +22,7 @@ class CreateSubastasTable extends Migration {
 			$table->string('titulo');
 			$table->longText('descripcion');
 			$table->char('estado');
+			$table->integer('oferta_ganadora');
 			$table->timestamp('fecha_fin');
 			$table->timestamps();
 		});

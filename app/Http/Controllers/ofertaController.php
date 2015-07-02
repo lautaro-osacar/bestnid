@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Guard;
 use App\Oferta;
+use App\Subasta;
 
 class ofertaController extends Controller {
 	
@@ -13,13 +15,20 @@ class ofertaController extends Controller {
 	}
 
 	/**
-	 * Display a listing of the resource.
+	 * Muestra las ofertas de una subasta especifica.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
+	public function index(Subasta $subasta,Guard $guard)
+	{	
+		//Me fijo si el usuario corresponde al dueño de la subasta
+		if($guard->id() == $subasta->user_id){
+			//Obtengo las ofertas de la subasta
+			$ofertas = Oferta::where('subasta_id','=',$subasta->id)->get();
+			return view('perfil.subasta_ofertas', compact("ofertas"));
+		}else{
+			return view('auth.unauthorized');
+		}
 	}
 
 	/**
