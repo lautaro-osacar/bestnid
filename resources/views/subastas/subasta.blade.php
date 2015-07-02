@@ -16,6 +16,7 @@
     		</div>
 		@endif
 
+		<!-- MENSAJE DE SUBASTA INACTIVA -->
 		@if ($subasta->estado != 'A')
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;&nbsp;Esta subasta no esta activa!

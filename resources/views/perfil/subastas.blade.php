@@ -20,7 +20,7 @@
 		</tr>
 		@foreach($mis_subastas as $subasta)
 			<tr class="active">
-				<td>{{$subasta->titulo}}</td>
+				<td><a href="/subasta/{{$subasta->id}}">{{$subasta->titulo}}</a></td>
 				<td class="estado">{{$subasta->estado}}</td>
 				<td>{{$subasta->created_at}}</td>
 				<td>{{$subasta->fecha_fin}}</td>
