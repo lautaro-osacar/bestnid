@@ -31,6 +31,12 @@ class ofertaController extends Controller {
 		}
 	}
 
+	public function show(Guard $guard){
+
+		$mis_ofertas= Oferta::where('user_id','=', $guard->id())->orderBy('created_at','asc')->get();
+		return view('perfil.ofertas',compact('mis_ofertas'));
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -73,10 +79,6 @@ class ofertaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.

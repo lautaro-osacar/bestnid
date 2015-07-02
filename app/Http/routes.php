@@ -87,6 +87,8 @@ Route::bind('subasta', function($id){
 
 Route::resource('oferta','ofertaController');
 
+Route::get('perfil/ofertas','ofertaController@show');
+
 
 
 
