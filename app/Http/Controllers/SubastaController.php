@@ -28,10 +28,12 @@ class SubastaController extends Controller {
 	{
 		$mis_subastas = DB::select('select (select count(ofertas.id) FROM ofertas where ofertas.subasta_id = subastas.id  and leido=0) as cant_ofertas, subastas.* from `subastas` 
 									left join ofertas on subastas.id = ofertas.subasta_id
-									where subastas.user_id= 2
+									where subastas.user_id='. $guard->id().'
 									group by subastas.id
 									order by cant_ofertas desc, created_at');
 
+
+		
 		return view('perfil.subastas',compact('mis_subastas'));
 	}
 	
