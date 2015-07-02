@@ -24,7 +24,7 @@
 				<td class="estado">{{$subasta->estado}}</td>
 				<td>{{$subasta->created_at}}</td>
 				<td>{{$subasta->fecha_fin}}</td>
-				<td>0</td>
+				<td>{{$subasta->cant_ofertas}}</td>
 				<td><a href="#" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 				<td><a href="#" class="btn btn-primary" role="button">Cancelar</a></td>
 			</tr>

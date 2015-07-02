@@ -8,7 +8,9 @@ use Illuminate\Auth\Guard;
 use App\Foto;
 use App\Categoria;
 use App\Subasta;
+use App\Oferta;
 use Validator;
+use DB;
 
 class SubastaController extends Controller {
 
@@ -24,9 +26,15 @@ class SubastaController extends Controller {
 	 */
 	public function index(Guard $guard)
 	{
-		$mis_subastas = Subasta::where('user_id','=', $guard->id())->orderBy('estado','created_at')->get();
+		$mis_subastas = DB::select('select (select count(ofertas.id) FROM ofertas where ofertas.subasta_id = subastas.id  and leido=0) as cant_ofertas, subastas.* from `subastas` 
+									left join ofertas on subastas.id = ofertas.subasta_id
+									where subastas.user_id= 2
+									group by subastas.id
+									order by cant_ofertas desc, created_at');
+
 		return view('perfil.subastas',compact('mis_subastas'));
 	}
+	
 
 	/**
 	 * Show the form for creating a new resource.

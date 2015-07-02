@@ -2,6 +2,7 @@
 use App\Ciudad;
 use App\Subasta;
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
