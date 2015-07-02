@@ -22,13 +22,14 @@
 	text-overflow: ellipsis;
 	max-width: 400px;
 }
+.escondido{
+	text-align: left;
+	max-width: 400px;
+	word-wrap: break-word;
+}
 .left {
     float: left;
 }
-.right {
-    float: right;
-}
-
 </style>
 
 
@@ -44,8 +45,8 @@
 			<tr class="active">
 				<td>
 				<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
-				<i oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
-    			<div id="{{$oferta->id}}" class="collapse">{{$oferta->necesidad}}</div>
+				<i id="{{$oferta->id}}" oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
+    			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
     			</td>
 				<td>{{$oferta->created_at}}</td>
 				<td><a href="#" class="btn btn-primary" role="button">Elegir como ganadora</a></td>
