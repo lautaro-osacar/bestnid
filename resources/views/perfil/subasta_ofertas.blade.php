@@ -1,6 +1,8 @@
 @extends('perfil.perfil')
 
 @section('perfil-contenido')
+<script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
+<script src="{{ asset('/js/subasta_ofertas.js') }}"></script>
 
 <style>
 .ofertas-table > tbody > tr > td {
@@ -14,12 +16,19 @@
 	text-align: center;
 }
 
-p.mostrado {
+.mostrado {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	max-width: 400px;
 }
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
 </style>
 
 
@@ -33,7 +42,11 @@ p.mostrado {
 		</tr>
 		@foreach($ofertas as $oferta)
 			<tr class="active">
-				<td><p class='mostrado'>{{$oferta->necesidad}}</p><span class="escondido"></td>
+				<td>
+				<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
+				<i oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
+    			<div id="{{$oferta->id}}" class="collapse">{{$oferta->necesidad}}</div>
+    			</td>
 				<td>{{$oferta->created_at}}</td>
 				<td><a href="#" class="btn btn-primary" role="button">Elegir como ganadora</a></td>
 		@endforeach
