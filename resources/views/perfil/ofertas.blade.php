@@ -43,7 +43,7 @@
 			<td>Subasta</td>
 		</tr>
 		@foreach($mis_ofertas as $oferta)
-			<?php if($oferta->id == $oferta->subasta->oferta_ganadora){
+			<?php if($oferta->subasta->estado == 'I' AND $oferta->id == $oferta->subasta->oferta_ganadora){
 				?>
 				<tr class="success">
 				<?php
