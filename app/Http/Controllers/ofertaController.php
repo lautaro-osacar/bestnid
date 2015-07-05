@@ -25,7 +25,7 @@ class ofertaController extends Controller {
 		if($guard->id() == $subasta->user_id){
 			//Obtengo las ofertas de la subasta
 			$ofertas = Oferta::where('subasta_id','=',$subasta->id)->get();
-			return view('perfil.subasta_ofertas', compact("ofertas"));
+			return view('perfil.subasta_ofertas', compact("ofertas","subasta"));
 		}else{
 			return view('auth.unauthorized');
 		}

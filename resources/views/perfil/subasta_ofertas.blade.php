@@ -33,7 +33,7 @@
 </style>
 
 
-<legend><center>Ofertas de una subasta</center></legend>
+<legend><center>Ofertas de <a href="/subasta/{{$subasta->id}}"><i>{{$subasta->titulo}}</i></a></center></legend>
 <div id="ofertas" class="col-md-12">
 	<table class="table table-hover table-bordered ofertas-table">
 		<tr class="col-guia">
