@@ -33,7 +33,7 @@ class ofertaController extends Controller {
 
 	public function show(Guard $guard){
 
-		$mis_ofertas= Oferta::where('user_id','=', $guard->id())->orderBy('created_at','asc')->get();
+		$mis_ofertas= Oferta::where('user_id','=', $guard->id())->orderBy('created_at','desc')->get();
 		return view('perfil.ofertas',compact('mis_ofertas'));
 	}
 
