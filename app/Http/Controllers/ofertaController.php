@@ -23,6 +23,8 @@ class ofertaController extends Controller {
 	{	
 		//Me fijo si el usuario corresponde al dueño de la subasta
 		if($guard->id() == $subasta->user_id){
+			//Modifico las ofertas no leidas a leidas
+			Oferta::where('subasta_id','=',$subasta->id)->where('leido','=', 0)->update(array('leido' => 1));
 			//Obtengo las ofertas de la subasta
 			$ofertas = Oferta::where('subasta_id','=',$subasta->id)->get();
 			return view('perfil.subasta_ofertas', compact("ofertas","subasta"));
