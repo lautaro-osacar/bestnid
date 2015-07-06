@@ -48,7 +48,7 @@
 		@foreach($mis_ofertas as $oferta)
 			@if($oferta->subasta->estado == 'F' AND $oferta->id == $oferta->subasta->oferta_ganadora)      <!--  si finalizo la subasta y la oferta es ganadora, aparece en color verde -->
 				<tr class="success">
-			@elseif($oferta->subasta->estado == 'F' OR $oferta->subasta->estado == 'I')   <!--  si finalizo la subasta o esta inactiva -->
+			@elseif($oferta->subasta->estado == 'F' OR $oferta->subasta->estado == 'I')   <!--  si finalizo la subasta o esta inactiva apar-->
 				<tr class="active">
 				@else
 					<tr>
