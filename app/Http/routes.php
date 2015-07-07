@@ -1,6 +1,7 @@
 <?php
 use App\Ciudad;
 use App\Subasta;
+use App\Oferta;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,11 @@ Route::bind('subasta', function($id){
 Route::resource('oferta','ofertaController');
 
 Route::get('perfil/ofertas','ofertaController@show');
+
+Route::get('/ofertaGanadora/{oferta}','ofertaController@chooseOfertaWinner');
+Route::bind('oferta', function($id){
+        return App\Oferta::where('id', $id)->first();
+ });
 
 
 

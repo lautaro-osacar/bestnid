@@ -28,7 +28,6 @@ function cargar_ciudades(){
                     //le paso todos los datos del form (despues pruebo pasarle provincia nomas)
                     data : $('#reg_form').serialize(),
                     success:function(data){
-                              
                             if(data.error === 0 ){ // no hay errores                                
                                 for (var i = 0; i < data.cities.length; i++) {
                                     $("[name='ciudad_id']").append("<option value='"+data.cities[i].id+"'>"+data.cities[i].nombre+"</option>");

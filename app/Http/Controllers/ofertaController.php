@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Guard;
 use App\Oferta;
 use App\Subasta;
+use App\OfertaGanadora;
+
 
 class ofertaController extends Controller {
 	
@@ -33,20 +35,27 @@ class ofertaController extends Controller {
 		}
 	}
 
+	/**
+	* Muestra las ofertas del usuario logueado
+	*
+	* @param Guard guard
+	* @return Response
+	*/
 	public function show(Guard $guard){
-
 		$mis_ofertas= Oferta::where('user_id','=', $guard->id())->orderBy('created_at','desc')->get();
 		return view('perfil.ofertas',compact('mis_ofertas'));
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	* Marca la oferta como ganadora
+	*
+	* @param Oferta oferta
+	* @return Response
+	*/
+	public function chooseOfertaWinner(Oferta $oferta){
+		$oferta->subasta->oferta_ganadora = $oferta->id;
+		$oferta->subasta->save();
+		return redirect('/perfil/subastas/'.$oferta->subasta_id.'/ofertas');
 	}
 
 	/**

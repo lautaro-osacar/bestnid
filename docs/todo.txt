@@ -1,5 +1,4 @@
--> Cambiar estado leido en ofertas de subasta
--> Cambiar titulo de ofertas de una subasta, poner titulo de subasta
+
 
 
 

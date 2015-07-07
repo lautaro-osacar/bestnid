@@ -35,21 +35,34 @@
 
 <legend><center>Ofertas de <a href="/subasta/{{$subasta->id}}"><i>{{$subasta->titulo}}</i></a></center></legend>
 <div id="ofertas" class="col-md-12">
-	<table class="table table-hover table-bordered ofertas-table">
+	<table class="table table-bordered ofertas-table">
 		<tr class="col-guia">
 			<td>Necesidad</td>
 			<td>Fecha</td>
 			<td>Elegir ganadora</td>
 		</tr>
 		@foreach($ofertas as $oferta)
-			<tr class="active">
-				<td>
-				<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
-				<i id="{{$oferta->id}}" oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
-    			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
-    			</td>
-				<td>{{$oferta->created_at}}</td>
-				<td><a href="#" class="btn btn-primary" role="button">Elegir como ganadora</a></td>
+			<!-- Si la oferta es ganadora queda en color verde -->
+			@if((isset($subasta->ofertaGanadora->id)) && ($subasta->ofertaGanadora->id == $oferta->id))
+				<tr class="success">
+			@else
+				<tr class="active">
+			@endif
+			
+			<td>
+			<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
+			<i id="{{$oferta->id}}" oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
+			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
+			</td>
+			<td>{{$oferta->created_at}}</td>
+			
+			<!--  Si la oferta es ganadora cambio el boton de elegir como ganadora -->
+			@if((isset($subasta->ofertaGanadora->id)) && ($subasta->ofertaGanadora->id == $oferta->id))
+				<td><span class="glyphicon glyphicon-ok"/></td>
+			@else
+				<td><a href="/ofertaGanadora/{{$oferta->id}}" class="btn btn-primary" role="button">Elegir como ganadora</a></td>
+				
+			@endif
 		@endforeach
 	</table>
 		

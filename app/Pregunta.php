@@ -4,6 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pregunta extends Model {
 
-	//
+	protected $table = 'preguntas';
+
+	protected $fillable = ['texto'];
+
+	public function subasta(){
+		return $this->belongsTo('App\Subasta');
+	}
 
 }

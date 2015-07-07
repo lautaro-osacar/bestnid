@@ -18,8 +18,7 @@ div#lado-izq{
 	/*
 	border-style: solid;
 	border-width: 1px;
-	*/
-	
+	*/	
 }
 
 div#lado-der{
@@ -31,7 +30,48 @@ div#lado-der{
 	border-style: solid;
 	border-width: 1px;
 	*/
-	
+}
+
+
+div#preg-rta{
+	margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+    width: 80%;
+}
+
+div#preguntar{
+	margin-left: 10%-10px;
+}
+
+div#preguntas{
+	margin-left: 10%;	
+}
+
+#preguntar-txt{
+	width: 70%;
+}
+
+.preguntas-table{
+	width: calc(70% + 170px);
+}
+
+.respuesta{
+	margin-left: 30px;
+}
+
+#preguntar-btn{
+	margin-bottom: 40px;
+}
+
+.container{
+	vertical-align:top;
+	position: relative;
+    bottom: 0;
+	/*
+	border-style: solid;
+	border-width: 1px;
+	*/
 }
 
 .modal-dialog{

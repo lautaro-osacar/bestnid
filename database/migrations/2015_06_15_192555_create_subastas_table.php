@@ -19,11 +19,10 @@ class CreateSubastasTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->integer('categoria_id')->unsigned();
 			$table->foreign('categoria_id')->references('id')->on('categorias');
+			$table->integer('oferta_ganadora');
 			$table->string('titulo');
 			$table->longText('descripcion');
 			$table->char('estado');
-			$table->integer('oferta_ganadora')->unsigned();
-			$table->foreign('oferta_ganadora')->references('id')->on('ofertas');
 			$table->timestamp('fecha_fin');
 			$table->timestamps();
 		});

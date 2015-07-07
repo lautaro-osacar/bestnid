@@ -24,4 +24,8 @@ class Subasta extends Model {
         return $this->hasMany('App\Oferta');
     }
 
+    public function ofertaGanadora(){
+        return $this->belongsTo('App\Oferta','oferta_ganadora','id');   
+    }
+
 }

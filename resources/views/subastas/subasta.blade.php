@@ -24,6 +24,7 @@
 		@endif
 
 	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
+	  	
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
 				@if (count($subasta->fotos)>0)
@@ -40,6 +41,7 @@
 			@endforeach
 			</div>
 		</div>
+		
 		<div id="lado-der">
 			<div id="ofertar">
 				@if (Auth::guest() or Auth::user()->id==$subasta->user_id or $subasta->estado!='A')
@@ -66,6 +68,9 @@
 		</div>
 	</div>
 
+	<div id="preg-rta">
+		@include('subastas.subasta_preg')
+	</div>
 
 @endsection
 
