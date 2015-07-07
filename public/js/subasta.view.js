@@ -8,4 +8,23 @@ $(document).ready( function (){
   			keyboard: true
 		});
 	}
+
+    var fixmeTop = $('.fixme').offset().top;
+    $(window).scroll(function() {
+        var currentScroll = $(window).scrollTop();
+        if (currentScroll >= fixmeTop) {
+            $('.fixme').css({
+                  position: 'fixed',
+				  top: '40px',
+				  background: 'white',
+				  color: 'white',
+  				  width: '100%',
+            });
+        } else {
+            $('.fixme').css({
+                position: 'static'
+            });
+        }
+    });
+
 });

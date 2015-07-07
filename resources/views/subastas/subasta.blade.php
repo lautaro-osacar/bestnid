@@ -23,7 +23,7 @@
 			</div>
 		@endif
 
-	  	<legend><h2><center>{{$subasta->titulo}}</center></h2></legend>
+	  	<div class="fixme"><legend><h2><center>{{$subasta->titulo}}</center></h2></legend></div>
 	  	
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
