@@ -117,7 +117,7 @@ class SubastaController extends Controller {
 	}
 
 	/**
-	* Realiza la busqueda de subastas (filtro por nombre y categoria)
+	* Muestra la informacion de una subasta especifica
 	* @param Subasta subasta
 	* @return Array suabasta
 	**/

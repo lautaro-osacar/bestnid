@@ -9,7 +9,7 @@
 
 
 	<div class="container">
-		<!-- MENSAJE DE SUBASTA CREADA -->
+		<!-- MENSAJE DE SUPERIOR SUBASTA -->
 		@if (session('status'))
 		    <div class="alert alert-success">
         		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
@@ -23,7 +23,7 @@
 			</div>
 		@endif
 
-	  	<div class="fixme"><legend><h2><center>{{$subasta->titulo}}</center></h2></legend></div>
+	  	<div ><legend><h2><center>{{$subasta->titulo}}</center></h2></legend></div>
 	  	
 	  	<div id="lado-izq">
 			<div id="gal1-principal">
@@ -69,7 +69,11 @@
 	</div>
 
 	<div id="preg-rta">
-		@include('subastas.subasta_preg')
+		@if( !(Auth::guest()) and $subasta->user_id == Auth::user()->id)
+			@include('subastas.subasta_preg_subastador')
+		@else
+			@include('subastas.subasta_preg')
+		@endif
 	</div>
 
 @endsection

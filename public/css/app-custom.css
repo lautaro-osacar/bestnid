@@ -24,19 +24,25 @@
 /* Al poner el navbar como fijo, el texto del body se sube (hay que bajarlo) */
 body { padding-top: 70px; }
 
-/* Para centrar el texto de la barra de busqueda */
-::-webkit-input-placeholder { /* WebKit browsers */
+/** Para centrar el texto de la barra de busqueda 
+::-webkit-input-placeholder { 
     text-align: center;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder { 
     text-align: center;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ but I'm not sure about working */
+::-moz-placeholder { 
     text-align: center;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
+:-ms-input-placeholder { 
     text-align: center;
 }
+*/
+
+input#busqueda_subasta[placeholder]{
+	text-align: center;
+}
+
 
 .input-group-btn select {
 	border-color: #ccc;

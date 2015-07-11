@@ -12,4 +12,8 @@ class Pregunta extends Model {
 		return $this->belongsTo('App\Subasta');
 	}
 
+	public function respuesta(){
+		return $this->hasOne('App\Respuesta');
+	}
+
 }

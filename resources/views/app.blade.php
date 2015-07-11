@@ -41,7 +41,7 @@
 				 	<form action="/busqueda" class="navbar-form navbar-left" role="search">
 			        	<div class="form-group">
 			        		<div class="input-group">
-						      <input name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
+						      <input id="busqueda_subasta" name='busqueda_subasta' style="width:350px" type="text" class="form-control" placeholder="Producto a buscar">
 						      <span class="input-group-btn">
 						        <select name="categoria" class="btn">
 						          <option value="0">Categoría</option>

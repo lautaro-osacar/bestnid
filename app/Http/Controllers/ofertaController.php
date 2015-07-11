@@ -52,10 +52,16 @@ class ofertaController extends Controller {
 	* @param Oferta oferta
 	* @return Response
 	*/
-	public function chooseOfertaWinner(Oferta $oferta){
-		$oferta->subasta->oferta_ganadora = $oferta->id;
-		$oferta->subasta->save();
-		return redirect('/perfil/subastas/'.$oferta->subasta_id.'/ofertas');
+	public function chooseOfertaWinner(Oferta $oferta,Guard $guard){
+		//Me fijo si el logueado es el subastador
+		if($guard->id() == $oferta->subasta->user_id){
+			//Marco la oferta como ganadora
+			$oferta->subasta->oferta_ganadora = $oferta->id;
+			$oferta->subasta->save();
+			return redirect('/perfil/subastas/'.$oferta->subasta_id.'/ofertas');
+		}else{
+			return view('auth.unauthorized');
+		}
 	}
 
 	/**
