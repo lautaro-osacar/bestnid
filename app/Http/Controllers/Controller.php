@@ -9,11 +9,4 @@ abstract class Controller extends BaseController {
 
 	use DispatchesCommands, ValidatesRequests;
 
-	public $categorias="I am Data";
-
-    public function __construct() {
-
-       View::share( 'categorias', $this->categorias);
-    }  
-
 }

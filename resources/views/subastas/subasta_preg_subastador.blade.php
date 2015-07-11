@@ -3,25 +3,36 @@
 <legend><h4><center>Preguntas al subastador</center></h4></legend>
 
 <style>
-input#respuesta-txt{
+.respuesta-txt{
 	float:left;
 	width: 80%;
 	margin-left: 20px;
 }
 
-#respuesta-icon{
+.respuesta-icon{
 	float:left;
 	margin-top: 7px;
 }
 
-#respuesta-btn{
+.respuesta-btn{
 	float:left;
 	margin-left: 10px;
 }
+
+.respondido-txt{
+	float:left;
+	margin-left: 10px;
+}
+
+.respondido-icon{
+	float:left;
+	margin-left: 10px;
+}
+
 </style>
 
 <div id="preguntas">
-		@foreach ($subasta->preguntas as $pregunta_id => $pregunta)
+		@foreach ($subasta->preguntas as $pregunta)
 		<table class="table table-bordered preguntas-table">
 				<tr class="pregunta">
 					<td>
@@ -32,20 +43,31 @@ input#respuesta-txt{
 				@if(!isset($pregunta->respuesta->texto))
 					<tr class="respuesta">
 						<td style="padding-left:25px;">
-							<span class="glyphicon glyphicon-arrow-right" id="respuesta-icon"></span>
-							<input type="text" class="form-control" id="respuesta-txt" placeholder="Ingrese aquí su respuesta">
-							<button type="submit" class="btn btn-primary" id="respuesta-btn">Responder</button>
+							<span class="glyphicon glyphicon-arrow-right respuesta-icon" id="respuesta-icon-{{$pregunta->id}}"></span>
+							{!! Form::open(['route' => 'respuesta.store','method'=>'POST','id'=>'form-rta-{{$pregunta->id}}']) !!}
+								<input type="text" class="form-control respuesta-txt" pregunta="{{$pregunta->id}}" id="respuesta-txt-{{$pregunta->id}}" name='texto' placeholder="Ingrese aquí su respuesta">
+								<div class="btn btn-primary respuesta-btn" pregunta="{{$pregunta->id}}" id="respuesta-btn-{{$pregunta->id}}">Responder<div>
+							{!! Form::close() !!}
 						</td>
 					</tr>
 				@else
 					<tr class="respuesta">
 						<td style="padding-left:25px;">
-							<span class="glyphicon glyphicon-arrow-right"></span>
-							&nbsp;&nbsp;{{$pregunta->respuesta->texto}}
+							<span class="glyphicon glyphicon-arrow-right respondido-icon" id="respondido-icon"></span>
+							<div class='respondido-txt'>{{$pregunta->respuesta->texto}}</div>
 						</td>
 					</tr>
 				@endif
 		</table>
 		@endforeach
-	
 </div>
+
+<script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-XSRF-Token': $('meta[name="csrf_token"]').attr('content')
+                }
+            });
+        });
+</script>

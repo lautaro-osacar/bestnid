@@ -4,16 +4,24 @@
 
 @if( !Auth::guest())
 	<div id="preguntar">
-		<center><textarea id="preguntar-txt" name="preguntar" rows="2"></textarea>
-		<a href="#" class="btn btn-primary" role="button" id="preguntar-btn">Preguntar</a>
+		{!! Form::open(['action'=>'PreguntaController@store','class' => 'form-horizontal','id' => 'formPreguntar']) !!}
+			<center><textarea id="preguntar-txt" name="preguntar-txt" rows="2"></textarea>
+			<input type="hidden" value="{{$subasta->id}}" name="subasta_id"/>
+			<button type="submit" class="btn btn-primary" id="preguntar-btn">Preguntar</button>
+		{!! Form::close() !!}
 		</center>
 	</div>
 @endif
 
 <div id="preguntas">
-		@foreach ($subasta->preguntas as $pregunta_id => $pregunta)
+		@foreach ($subasta->preguntas as $i => $pregunta)
 			<table class="table table-bordered preguntas-table">
-				<tr class="pregunta">
+				<!-- Si la pregunta corresponde al usuario la pinto de verde -->
+				@if(Auth::user() and $pregunta->user_id == Auth::user()->id)
+					<tr class="pregunta success">
+				@else
+					<tr class="pregunta">
+				@endif
 					<td>
 						<span class="glyphicon glyphicon-question-sign"></span>
 						&nbsp;&nbsp;{{$pregunta->texto}}

@@ -95,7 +95,9 @@ Route::bind('oferta', function($id){
         return App\Oferta::where('id', $id)->first();
  });
 
+Route::resource('pregunta','PreguntaController');
 
+Route::resource('respuesta','RespuestaController');
 
 
 
