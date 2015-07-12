@@ -103,6 +103,8 @@ Route::get('admin',function(){
     return view('admin.admin');
 });
 
-Route::get('admin/categorias','CategoriasController@index');
+Route::resource('admin/categorias','CategoriasController');
+
+
 
 
