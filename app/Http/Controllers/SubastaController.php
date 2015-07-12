@@ -125,6 +125,28 @@ class SubastaController extends Controller {
 		return view('subastas.subasta', compact("subasta"));
 	}
 
+	public function sendOfertaGanadoraNotification(){
+		/*
+		$data =[
+			'titulo' => 'Gasnaste la subasta!',
+			'cuerpo1' => 'Tu oferta en el producto blablabla se elegió como ganadora',
+			'cuerpo2' => ''];
+
+		\Mail::send('emails.bestnid_mail_template', $data, function($message)
+       {
+           //remitente
+           $message->from('bestnid.notificaciones@gmail.com', 'Bestnid');
+ 
+           //asunto
+           $message->subject('Tu oferta ha sido elegida!');
+ 
+           //receptor
+           $message->to('lautaro.eo@gmail.com');
+ 
+       });
+       */
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -158,5 +180,6 @@ class SubastaController extends Controller {
 	{
 		//
 	}
+
 
 }

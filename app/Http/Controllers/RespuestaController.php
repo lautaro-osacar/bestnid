@@ -34,7 +34,7 @@ class RespuestaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $re)	{	
+	public function store()	{	
     	$respuesta = new Respuesta();
 		$respuesta->texto = Input::get('texto');
 		$respuesta->pregunta_id = Input::get('pregunta_id');
