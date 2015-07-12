@@ -99,6 +99,10 @@ Route::resource('pregunta','PreguntaController');
 
 Route::resource('respuesta','RespuestaController');
 
+Route::get('admin',function(){
+    return view('admin.admin');
+});
 
+Route::get('admin/categorias','CategoriasController@index');
 
 

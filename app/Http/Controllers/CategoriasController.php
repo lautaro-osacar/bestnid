@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller {
@@ -14,7 +14,9 @@ class CategoriasController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		//No le paso $categorias porque es una variable global
+
+		return view('admin.categorias');
 	}
 
 	/**
