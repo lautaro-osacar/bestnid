@@ -38,20 +38,23 @@
 <div id="ofertas" class="col-md-12">
 	<table class="table table-bordered ofertas-table">
 		<tr class="col-guia">
+			<td>Estado de la oferta</td>
 			<td>Necesidad</td>
 			<td>Monto</td>
 			<td>Fecha</td>
 			<td>Subasta</td>
 			<td>Finalización de la subasta</td>
-			<td>Estado de la subasta</td>
 		</tr>
 		@foreach($mis_ofertas as $oferta)
 			@if($oferta->subasta->estado == 'F' AND $oferta->id == $oferta->subasta->oferta_ganadora)      <!--  si finalizo la subasta y la oferta es ganadora, aparece en color verde -->
 				<tr class="success">
+				<td>Ganadora</td>
 			@elseif($oferta->subasta->estado == 'F' OR $oferta->subasta->estado == 'I')   <!--  si finalizo la subasta o esta inactiva apar-->
 				<tr class="active">
+				<td>No elegida</td>
 				@else
 					<tr>
+						<td>Pendiente</td>
 			@endif
 				<td>
 				<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
@@ -60,9 +63,9 @@
     			</td>
 				<td>{{$oferta->monto}}</td>
 				<td>{{$oferta->created_at}}</td>
+
 				<td><a href="/subasta/{{$oferta->subasta_id}}">{{$oferta->subasta->titulo}}</a></td>
 				<td>{{$oferta->subasta->fecha_fin}}</td>
-				<td class="estado">{{$oferta->subasta->estado}}</td>
 			</tr>
 		@endforeach
 	</table>
