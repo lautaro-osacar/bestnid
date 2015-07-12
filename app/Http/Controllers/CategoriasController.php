@@ -37,13 +37,14 @@ class CategoriasController extends Controller {
 	public function store(Request $request)
 	{
 		$this->validate($request, [
-			'nombre' => 'required|max:40'
+			'categoria' => 'required|max:40'
 		]);
+
 		$categoria= new Categoria();
-		$categoria->nombre= $request->get('categoria-nombre');
+		$categoria->nombre= $request->get('categoria');
 		$categoria->save();
 
-		return redirect('admin.categorias')->with('status','La categoria ha sido creada!');
+		return redirect('admin/categorias')->with('status','La categoria ha sido creada!');
 	}
 
 	/**

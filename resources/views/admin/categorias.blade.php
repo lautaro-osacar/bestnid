@@ -6,7 +6,16 @@
 <script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
 
 <legend><center>Categorias</center></legend>
-
+@if (count($errors) > 0)
+	<div class="alert alert-danger">
+		<strong>Error!</strong>  Se encontraron problemas en los registros:<br><br>
+		<ul>
+			@foreach ($errors->all() as $key => $error)
+				<li id="error-{{$key}}">{{ $error }}</li>
+			@endforeach
+		</ul>
+	</div>
+@endif
 @if (session('status'))
     <div class="alert alert-success">
 		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
@@ -14,11 +23,14 @@
 @endif
 
 <div id="create-categoria">
-	{!! Form::open(['action'=>'CategoriasController@store','class' => 'form-horizontal','id' => 'formCategoria']) !!}
-	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-		<textarea id="categoria-nombre" name="categoria-nombre" rows="2"></textarea>
+	<center>
+	{!! Form::open(['action'=>'CategoriasController@store','class' => 'form-inline','id' => 'formCategoria']) !!}
+	<div class="form-group">
+		<input type="text" class="form-control" id="categoria" name="categoria" placeholder="Nombre de la categoria">
+	</div>
 		<button type="submit" class="btn btn-primary" id="categoria-btn">Crear categoria</button>
 	{!! Form::close() !!}
+	</center>
 </div>
 <div id="categorias" class="col-md-12">
 	<table class="table table-hover categorias-table">
