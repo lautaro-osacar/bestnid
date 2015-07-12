@@ -61,3 +61,13 @@
 		</table>
 		@endforeach
 </div>
+
+<script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-XSRF-Token': $('meta[name="csrf_token"]').attr('content')
+                }
+            });
+        });
+</script>

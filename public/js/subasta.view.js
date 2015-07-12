@@ -54,7 +54,7 @@ $(document).ready( function (){
           $("#respuesta-txt-"+pregunta_id).replaceWith("<div class='respondido-txt'>"+$("#respuesta-txt-"+pregunta_id).val()+"</div>");
           $(this).hide();
           //Agrego la respuesta a la BD
-          var data = {pregunta_id:pregunta_id,texto:texto};
+          var data = {pregunta_id:pregunta_id,texto:texto,_token:$('meta[name="csrf_token"]').attr('content')};
           $.post('/respuesta',data,function(result){
               console.log(result);
           });
