@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller {
 
@@ -22,7 +23,10 @@ class UserController extends Controller {
 	 * @return Response
 	 */
 	public function find(Request $request){
-		dd('fuck');
+		$usuarios = User::whereBetween('created_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
+						->orderBy('created_at')->get();
+	
+		return view('admin.usuarios',compact('usuarios'));
 	}
 
 	/**
