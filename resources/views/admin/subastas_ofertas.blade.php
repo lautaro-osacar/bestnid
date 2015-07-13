@@ -1,6 +1,7 @@
 @extends('admin.admin')
 
 @section('admin-contenido')
+
 <script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('/js/subasta_ofertas.js') }}"></script>
 
@@ -33,38 +34,50 @@
 </style>
 
 
-<legend><center>Ofertas de <a href="/subasta/{{$subasta->id}}"><i>{{$subasta->titulo}}</i></a></center></legend>
-<div id="ofertas" class="col-md-12">
+<legend><center>Ofertas de {{$subasta->titulo}}</center></legend>
+@if (session('status'))
+    <div class="alert alert-success">
+		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
+	</div>
+@endif
+<<div id="ofertas" class="col-md-12">
 	<table class="table table-bordered ofertas-table">
 		<tr class="col-guia">
+			<td>Estado</td>
+			<td>Fecha</td>			
 			<td>Necesidad</td>
-			<td>Fecha</td>
-			<td>Elegir ganadora</td>
+			<td>Monto</td>
+			<td>Borrar</td>
 		</tr>
 		@foreach($ofertas as $oferta)
-			<!-- Si la oferta es ganadora queda en color verde -->
-			@if((isset($subasta->ofertaGanadora->id)) && ($subasta->ofertaGanadora->id == $oferta->id))
+			<!--  si finalizo la subasta y la oferta es ganadora, aparece en color verde -->
+			@if($oferta->subasta->estado == 'F' AND $oferta->id == $oferta->subasta->oferta_ganadora)      
 				<tr class="success">
-			@else
+				<td>Ganadora</td>
+			<!--  si finalizo la subasta o esta inactiva aparece en gris¿?-->
+			@elseif($oferta->subasta->estado == 'F' OR $oferta->subasta->estado == 'I')   
 				<tr class="active">
+				<td>No elegida</td>
+				@else
+					<tr>
+						<td>Pendiente</td>
 			@endif
-			
-			<td>
-			<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
-			<i id="{{$oferta->id}}" oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
-			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
-			</td>
-			<td>{{$oferta->created_at}}</td>
-			
-			<!--  Si la oferta es ganadora cambio el boton de elegir como ganadora -->
-			@if((isset($subasta->ofertaGanadora->id)) && ($subasta->ofertaGanadora->id == $oferta->id))
-				<td><span class="glyphicon glyphicon-ok"/></td>
-			@else
-				<td><a href="/ofertaGanadora/{{$oferta->id}}" class="btn btn-primary" role="button">Elegir como ganadora</a></td>
-				
-			@endif
+				<td>{{$oferta->created_at}}</td>
+				<td>
+				<div id="{{$oferta->id}}" class='mostrado left'>{{$oferta->necesidad}}</div>
+				<i id="{{$oferta->id}}" oferta="{{$oferta->id}}" class='left expandir glyphicon glyphicon-plus'></i>
+    			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
+    			</td>
+				<td>{{$oferta->monto}}</td>
+				<td><center><a href="/admin/subastas/{{$subasta->id}}/ofertas/del/{{$oferta->id}}" class="btn btn-primary" role="button">Borrar</a></center></td>
+
+
+			</tr>
 		@endforeach
 	</table>
+		
+
+</div>
 		
 
 </div>

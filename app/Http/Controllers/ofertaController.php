@@ -126,9 +126,10 @@ class ofertaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Subasta $subasta, Oferta $oferta)
 	{
-		//
+		$oferta->delete();
+		return redirect('admin/subastas/'.$subasta->id.'/ofertas')->with('status','La oferta fue eliminada');
 	}
 
 	public function indexAdmin(Subasta $subasta)
