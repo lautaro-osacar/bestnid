@@ -1,6 +1,9 @@
 @extends('admin.admin')
 
 @section('admin-contenido')
+<script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
+<script src="{{ asset('/js/elements/estado.js') }}"></script>
+
 <style>
 .subastas-table > tbody > tr > td {
   border: 1px solid #dddddd;
@@ -53,9 +56,9 @@
 							@foreach($subastas as $subasta)
 								<tr class="active">
 									<td>{{$subasta->created_at}}</td>
-									<td>{{$subasta->titulo}}</td>
-									<td>{{$subasta->estado}}</td>
-									<td>Botón</td>
+									<td><a href="/subasta/{{$subasta->id}}">{{$subasta->titulo}}</a></td>
+									<td class="estado">{{$subasta->estado}}</td>
+									<td><a href="/admin/subastas/{{$subasta->id}}/ofertas/" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 									<td>Botón</td>
 								</tr>
 							@endforeach

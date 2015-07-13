@@ -90,6 +90,7 @@ class ofertaController extends Controller {
 
 	}
 
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -128,6 +129,13 @@ class ofertaController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function indexAdmin(Subasta $subasta)
+	{
+		//Obtengo las ofertas de la subasta
+		$ofertas = Oferta::where('subasta_id','=',$subasta->id)->get();
+		return view('admin.subastas_ofertas', compact('ofertas','subasta'));
 	}
 
 }
