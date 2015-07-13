@@ -18,7 +18,9 @@
 /* Centrado de la barra de busqueda*/
 .navbar-center
 {
-    margin-left: 15%;
+	position:absolute;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 /* Al poner el navbar como fijo, el texto del body se sube (hay que bajarlo) */

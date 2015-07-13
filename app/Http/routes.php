@@ -115,10 +115,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::resource('admin/usuarios','UserController');
     Route::post('admin/usuarios/find','UserController@find');
     Route::post('admin/subastas','SubastaController@findAdmin');
+    Route::get('admin/subastas','SubastaController@indexAdmin');
 });
-
-
-
-
-
 

@@ -183,10 +183,28 @@ class SubastaController extends Controller {
 
 	public function findAdmin(Request $request)
 	{
-		$subastas= Subasta::whereBetween('crteated_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
-								->orderBy('creted_at')->get();
-		dd($subastas);
+		if( ($request->get('fecha_desde')) and ($request->get('fecha_hasta')) ){
+			$subastas= Subasta::whereBetween('created_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
+									->orderBy('created_at')->get();
+
+		}elseif ($request->get('fecha_desde')) {
+			$subastas= Subasta::where('created_at','>=',$request->get('fecha_desde'))
+									->orderBy('created_at')->get();
+
+		}elseif ($request->get('fecha_hasta')) {
+			$subastas=Subasta::where('created_at','<=',$request->get('fecha_hasta'))
+									->orderBy('created_at')->get();
+		}else{
+			$subastas=Subasta::orderBy('created_at')->get();
+
+		}
+
 		return view('admin.subastas',compact('subastas'));
+	}
+
+	public function indexAdmin()
+	{
+		return view('admin.subastas');
 	}
 
 
