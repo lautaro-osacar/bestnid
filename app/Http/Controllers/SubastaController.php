@@ -181,5 +181,11 @@ class SubastaController extends Controller {
 		//
 	}
 
+	public function indexAdmin(Request $request)
+	{
+		$subastas= Subasta::whereBetween('crteated_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
+								->orderBy('creted_at')->get();
+	}
+
 
 }
