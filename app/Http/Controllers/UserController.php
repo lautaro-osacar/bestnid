@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 class UserController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * Muestra listado de usuarios, vista de admin
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
+	public function index(){
+		return view('admin.usuarios');
+	}
+
+	/**
+	 * Listado de usuarios con filtro por fecha_desde y fecha_hasta
+	 *
+	 * @return Response
+	 */
+	public function find(Request $request){
+		dd('fuck');
 	}
 
 	/**

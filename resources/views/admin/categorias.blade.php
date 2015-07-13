@@ -2,7 +2,6 @@
 
 @section('admin-contenido')
 
-<link href="{{ asset('/css/perfil.subastas.css') }}" rel="stylesheet">
 <script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
 
 <legend><center>Categorías</center></legend>
