@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Categoria;
 use Illuminate\Http\Request;
 
+use App\Subasta;
+
 class CategoriasController extends Controller {
 
 	/**
@@ -86,9 +88,16 @@ class CategoriasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
-		//
+	public function destroy(Categoria $categoria){
+		$hay_subastas = Subasta::where('categoria_id',"=",$categoria->id)->get()->first();
+		if($hay_subastas){
+			return redirect('admin/categorias')->with('status-error','No se puede eliminar "'.$categoria->nombre.
+				'" porque existen subastas con esta categoría');
+		}else{
+			$nombre = $categoria->nombre;
+			$categoria->delete();
+			return redirect('admin/categorias')->with('status','La categoría "'.$nombre.'" fue eliminada');
+		}
 	}
 
 }

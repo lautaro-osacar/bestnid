@@ -2,6 +2,7 @@
 use App\Ciudad;
 use App\Subasta;
 use App\Oferta;
+use App\Categoria;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +104,17 @@ Route::get('admin',function(){
     return view('admin.admin');
 });
 
-Route::resource('admin/categorias','CategoriasController');
+Route::bind('categoria', function($nombre){
+        return App\Categoria::where('nombre', $nombre)->first();
+});
+
+Route::group(['middleware' => ['auth','admin']], function(){
+    Route::get('admin',function(){});
+    Route::resource('admin/categorias','CategoriasController');
+    Route::get('admin/categorias/del/{categoria}','CategoriasController@destroy');
+});
+
+
 
 
 
