@@ -109,9 +109,10 @@ Route::bind('categoria', function($nombre){
 });
 
 Route::group(['middleware' => ['auth','admin']], function(){
-    Route::get('admin',function(){});
+    Route::get('admin',function(){return view('admin/categorias');});
     Route::resource('admin/categorias','CategoriasController');
     Route::get('admin/categorias/del/{categoria}','CategoriasController@destroy');
+    Route::resource('admin/usuarios','UserController');
 });
 
 
