@@ -69,10 +69,20 @@
 											Ver Datos
 										</a>
 									</td>
-									<td>
-										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button">
-											Nombrar administrador
-										</a>
+									<td id="admin">
+										@if(!$usuario->esAdmin)
+											{!! Form::open(['action'=>'UserController@newAdministratorAJAX','method'=>'POST']) !!}
+												<div class="btn btn-primary nuevo-admin-btn" role="button">
+													Nombrar administrador
+												</div>
+											{!! Form::close() !!}
+										@else
+											{!! Form::open(['action'=>'UserController@removeAdministratorAJAX','method'=>'POST']) !!}
+												<div class="btn btn-primary btn-warning sacar-admin-btn" role="button">
+													Sacar rol administrador
+												</div>
+											{!! Form::close() !!}
+										@endif
 									</td>
 									<td>
 										{!! Form::open(['action'=>'UserController@deleteWithAJAX','method'=>'POST']) !!}

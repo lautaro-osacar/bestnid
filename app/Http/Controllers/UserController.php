@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Destroyer;
 use App\User;
+use App\RolAdmin;
 
 class UserController extends Controller {
 
@@ -41,6 +42,23 @@ class UserController extends Controller {
 		}
 
 		return view('admin.usuarios',compact('usuarios'));
+	}
+
+	public function removeAdministratorAJAX(){
+		//Obtengo el usuario
+		$usuario = User::find(\Input::get('usuario_id'));
+		//Lo borro de la tabla de admins
+		$destroy = new Destroyer;
+		$destroy->rolAdmin($usuario->esAdmin);
+	}
+
+	public function newAdministratorAJAX(){
+		//Obtengo el usuario
+		$usuario = User::find(\Input::get('usuario_id'));
+		//Lo creo en la tabla de admins
+		$admin = new RolAdmin();
+		$admin->user_id = $usuario->id;
+		$admin->save();
 	}
 
 	/**

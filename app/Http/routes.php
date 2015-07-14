@@ -128,5 +128,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin/usuario/{usuario}','UserController@showAdmin');
     Route::get('admin/usuarios/del/{usuario}','UserController@delete');
     Route::post('admin/usuarios/del','UserController@deleteWithAJAX');
+    Route::post('admin/usuarios/nuevoadmin','UserController@newAdministratorAJAX');
+    Route::post('admin/usuarios/sacaradmin','UserController@removeAdministratorAJAX');
 });
 
