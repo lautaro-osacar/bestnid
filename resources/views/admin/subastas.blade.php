@@ -3,6 +3,7 @@
 @section('admin-contenido')
 <script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('/js/elements/estado.js') }}"></script>
+<script src="{{ asset('/js/admin_subastas.js') }}"></script>
 
 <style>
 .subastas-table > tbody > tr > td {
@@ -60,15 +61,17 @@
 							<td>Borrar</td>
 						</tr>
 							@foreach($subastas as $subasta)
-								<tr class="active">
+								<tr class="active" subasta="{{$subasta->id}}">
 									<td>{{$subasta->created_at}}</td>
 									<td><a href="/subasta/{{$subasta->id}}">{{$subasta->titulo}}</a></td>
 									<td class="estado">{{$subasta->estado}}</td>
 									<td><a href="/admin/subastas/{{$subasta->id}}/ofertas/" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 									<td>
-										<a href="/admin/subastas/del/{{$subasta->id}}" class="btn btn-primary" role="button" onclick="if(!confirm('Al borrar una subasta se borraran las ofertas, preguntas, respuestas y todos sus datos asociados. ¿Desea continuar?')){return false;};">
-											Borrar
-										</a>
+										{!! Form::open(['action'=>'SubastaController@delete','method'=>'POST']) !!}
+											<div class="btn btn-primary borrar-subasta-btn" role="button">
+												Borrar
+											</div>
+										{!! Form::close() !!}
 									</td>
 								</tr>
 							@endforeach

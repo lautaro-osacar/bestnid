@@ -2,6 +2,9 @@
 
 @section('admin-contenido')
 
+<script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
+<script src="{{ asset('/js/admin_usuarios.js') }}"></script>
+
 <style>
 .usuarios-table > tbody > tr > td {
   border: 1px solid #dddddd;
@@ -53,12 +56,12 @@
 							<td>Fecha de Alta</td>
 							<td>Mail</td>
 							<td>Datos</td>
-							<td>Subastas</td>
-							<td>Baja</td>
 							<td>Privilegios</td>
+							<td>Baja</td>
+							
 						</tr>
 							@foreach($usuarios as $usuario)
-								<tr class="active">
+								<tr class="active" usuario="{{$usuario->id}}">
 									<td>{{$usuario->created_at}}</td>
 									<td>{{$usuario->email}}</td>
 									<td>
@@ -68,18 +71,15 @@
 									</td>
 									<td>
 										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button">
-											Ver Subastas
-										</a>
-									</td>
-									<td>
-										<a href="/admin/usuarios/del/{{$usuario->id}}" class="btn btn-primary" role="button" onclick="if(!confirm('Al borrar un usuario se borrarán sus subastas, preguntas, respuestas, ofertas y datos asociados. ¿Desea continuar?')){return false;};">
-											Borrar
-										</a>
-									</td>
-									<td>
-										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button">
 											Nombrar administrador
 										</a>
+									</td>
+									<td>
+										{!! Form::open(['action'=>'UserController@deleteWithAJAX','method'=>'POST']) !!}
+											<div class="btn btn-primary borrar-usuario-btn" role="button">
+												Borrar
+											</div>
+										{!! Form::close() !!}
 									</td>
 								</tr>
 							@endforeach

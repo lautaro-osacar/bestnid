@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Input;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Guard;
 use App\Services\Destroyer;
@@ -185,7 +186,12 @@ class SubastaController extends Controller {
 
 	public function delete(Subasta $subasta){
 		$this->destroy($subasta);
-		return redirect('admin/subastas')->with('status','La subasta fue eliminada');
+		return redirect('admin/subastas')->with('status','La subasta fue eliminada');	
+	}
+
+	public function deleteWithAJAX(){
+		$subasta = Subasta::find(Input::get('subasta_id'));
+		$this->destroy($subasta);
 	}
 
 	public function findAdmin(Request $request)

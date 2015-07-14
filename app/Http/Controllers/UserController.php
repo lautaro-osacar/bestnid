@@ -118,4 +118,9 @@ class UserController extends Controller {
 		return redirect('admin/usuarios')->with('status','El usuario fue eliminado');
 	}
 
+	public function deleteWithAJAX(){
+		$usuario = User::find(\Input::get('usuario_id'));
+		$this->destroy($usuario);
+	}
+
 }
