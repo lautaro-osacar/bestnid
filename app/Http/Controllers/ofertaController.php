@@ -5,13 +5,14 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Guard;
+use App\Services\Destroyer;
 use App\Oferta;
 use App\Subasta;
 use App\OfertaGanadora;
 
 
 class ofertaController extends Controller {
-	
+
 	public function __construct(){
 		$this->middleware('auth');
 	}
@@ -126,11 +127,18 @@ class ofertaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Subasta $subasta, Oferta $oferta)
+	public function destroy(Oferta $oferta)
 	{
-		$oferta->delete();
+		$destroyer = new Destroyer();
+		return $destroyer->oferta($oferta);
+	}
+
+	public function delete(Subasta $subasta, Oferta $oferta)
+	{
+		$this->destroy($oferta);
 		return redirect('admin/subastas/'.$subasta->id.'/ofertas')->with('status','La oferta fue eliminada');
 	}
+
 
 	public function indexAdmin(Subasta $subasta)
 	{

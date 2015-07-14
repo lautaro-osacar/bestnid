@@ -44,7 +44,7 @@
 				<div class="panel-body">
 					<table class="table table-hover table-bordered usuarios-table">
 						<tr class="col-guia">
-							<td>Fecha</td>
+							<td>Fecha de Alta</td>
 							<td>Mail</td>
 							<td>Datos</td>
 							<td>Subastas</td>
@@ -60,8 +60,16 @@
 											Ver Datos
 										</a>
 									</td>
-									<td>Botón</td>
-									<td>Botón</td>
+									<td>
+										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button">
+											Ver Subastas
+										</a>
+									</td>
+									<td>
+										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button" onclick="if(!confirm('Al borrar un usuario se borrarán sus subastas, preguntas, respuestas, ofertas y datos asociados. ¿Desea continuar?')){return false;};">
+											Borrar
+										</a>
+									</td>
 									<td>
 										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button">
 											Nombrar administrador

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Guard;
+use App\Services\Destroyer;
 use App\Foto;
 use App\Categoria;
 use App\Subasta;
@@ -97,7 +98,7 @@ class SubastaController extends Controller {
 	/**
 	* Realiza la busqueda de subastas (filtro por nombre y categoria)
 	* @param Request request
-	* @return Array suabastas
+	* @return Array subastas
 	**/
 	public function find(Request $request){
 		//Si no se elije categoria, filtra solo por nombre
@@ -119,7 +120,7 @@ class SubastaController extends Controller {
 	/**
 	* Muestra la informacion de una subasta especifica
 	* @param Subasta subasta
-	* @return Array suabasta
+	* @return Array subasta
 	**/
 	public function show(Subasta $subasta){
 		return view('subastas.subasta', compact("subasta"));
@@ -176,9 +177,15 @@ class SubastaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Subasta $subasta)
 	{
-		//
+		$destroyer = new Destroyer();
+		$destroyer->subasta($subasta);
+	}
+
+	public function delete(Subasta $subasta){
+		$this->destroy($subasta);
+		return redirect('admin/subastas')->with('status','La subasta fue eliminada');
 	}
 
 	public function findAdmin(Request $request)

@@ -44,6 +44,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Oferta');
     }
 
+    public function subastas(){
+        return $this->hasMany('App\Subasta');
+    }
+
     public function esAdmin(){
     	return $this->belongsTo('App\RolAdmin','id','user_id');   
     }
