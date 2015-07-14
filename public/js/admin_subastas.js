@@ -22,7 +22,10 @@ $(document).ready( function (){
 			//Mando por ajax la peticion al controlador
 			var data = {subasta_id:subasta_id,_token:$('meta[name="csrf_token"]').attr('content')};
 			$.post('/admin/subastas/del',data,function(result){
-              columna.fadeOut();
+              columna.fadeOut("slow",function(){
+              		var nombre = columna.find("td#titulo").text();
+            		columna.replaceWith('<tr><td colspan="100%"><span class="glyphicon glyphicon-ok"></span>&nbsp;Subasta "'+nombre+'" eliminada!</td></tr>');
+            	});
           	});
 		});
 	});
