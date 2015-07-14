@@ -40,13 +40,14 @@
 		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
 	</div>
 @endif
-<<div id="ofertas" class="col-md-12">
+<div id="ofertas" class="col-md-12">
 	<table class="table table-bordered ofertas-table">
 		<tr class="col-guia">
 			<td>Estado</td>
 			<td>Fecha</td>			
 			<td>Necesidad</td>
 			<td>Monto</td>
+			<td>Usuario</td>
 			<td>Borrar</td>
 		</tr>
 		@foreach($ofertas as $oferta)
@@ -69,6 +70,7 @@
     			<div id="{{$oferta->id}}" class="collapse escondido">{{$oferta->necesidad}}</div>
     			</td>
 				<td>{{$oferta->monto}}</td>
+				<td>{{$oferta->user->email}}</td>
 				<td><center><a href="/admin/subastas/{{$subasta->id}}/ofertas/del/{{$oferta->id}}" class="btn btn-primary" role="button">Borrar</a></center></td>
 
 

@@ -41,6 +41,12 @@
 <br>
 <br>
 @if(isset($subastas))
+	<div class="bs-example">
+		<div class="alert alert-info fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<strong>!</strong> Al borrar una subasta se borraran todal las ofertas,preguntas y respuestas de la misma.
+		</div>
+	</div>
 	<div id="resultados-busqueda">
 		<div class="panel panel-default">
 			<div class="panel-heading">Resultados de la búsqueda</div>

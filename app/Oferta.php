@@ -10,8 +10,8 @@ class Oferta extends Model {
 		return $this->belongsTo('App\Subasta');
 	}
 
-	public function usuario(){
-        return $this->belongsTo('App\Usuario');
+	public function user(){
+        return $this->belongsTo('App\User');
     }
 
     
