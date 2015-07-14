@@ -3,6 +3,7 @@ use App\Ciudad;
 use App\Subasta;
 use App\Oferta;
 use App\Categoria;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,10 @@ Route::bind('categoria', function($nombre){
         return App\Categoria::where('nombre', $nombre)->first();
 });
 
+Route::bind('usuario', function($id){
+        return App\User::where('id', $id)->first();
+});
+
 Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin',function(){return view('admin/categorias');});
     Route::resource('admin/categorias','CategoriasController');
@@ -118,5 +123,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin/subastas','SubastaController@indexAdmin');
     Route::get('admin/subastas/{subasta}/ofertas','ofertaController@indexAdmin');
     Route::get('admin/subastas/{subasta}/ofertas/del/{oferta}','ofertaController@destroy');
+    Route::get('admin/usuario/{usuario}','UserController@edit');
 });
 

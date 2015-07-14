@@ -23,9 +23,22 @@ class UserController extends Controller {
 	 * @return Response
 	 */
 	public function find(Request $request){
-		$usuarios = User::whereBetween('created_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
-						->orderBy('created_at')->get();
-	
+		if( ($request->get('fecha_desde')) and ($request->get('fecha_hasta')) ){
+			$usuarios= User::whereBetween('created_at', array($request->get('fecha_desde'), $request->get('fecha_hasta')))
+									->orderBy('created_at')->get();
+
+		}elseif ($request->get('fecha_desde')) {
+			$usuarios= User::where('created_at','>=',$request->get('fecha_desde'))
+									->orderBy('created_at')->get();
+
+		}elseif ($request->get('fecha_hasta')) {
+			$usuarios=User::where('created_at','<=',$request->get('fecha_hasta'))
+									->orderBy('created_at')->get();
+		}else{
+			$usuarios=User::orderBy('created_at')->get();
+
+		}
+
 		return view('admin.usuarios',compact('usuarios'));
 	}
 
@@ -66,9 +79,9 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(User $usuario)
 	{
-		//
+		return view('admin.usuario',compact('usuario'));
 	}
 
 	/**

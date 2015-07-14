@@ -19,8 +19,8 @@
 .navbar-center
 {
 	position:absolute;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 25%;
+    margin-right: 20%;
 }
 
 /* Al poner el navbar como fijo, el texto del body se sube (hay que bajarlo) */
