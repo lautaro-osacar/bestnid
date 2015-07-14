@@ -51,4 +51,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function esAdmin(){
     	return $this->belongsTo('App\RolAdmin','id','user_id');   
     }
+
+    public function preguntas(){
+    	return $this->hasMany('App\Pregunta');	
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Services\Destroyer;
 use App\User;
 
 class UserController extends Controller {
@@ -73,6 +74,10 @@ class UserController extends Controller {
 		//
 	}
 
+	public function showAdmin(User $usuario){
+		return view('admin.usuario',compact('usuario'));
+	}
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -81,7 +86,7 @@ class UserController extends Controller {
 	 */
 	public function edit(User $usuario)
 	{
-		return view('admin.usuario',compact('usuario'));
+		//
 	}
 
 	/**
@@ -101,9 +106,16 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(User $usuario)
 	{
-		//
+		$destroyer = new Destroyer();
+		return $destroyer->usuario($usuario);
+	}
+
+	public function delete(User $usuario)
+	{
+		$this->destroy($usuario);
+		return redirect('admin/usuarios')->with('status','El usuario fue eliminado');
 	}
 
 }

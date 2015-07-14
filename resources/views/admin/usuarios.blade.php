@@ -17,6 +17,12 @@
 
 <legend><center>Usuarios</center></legend>
 
+@if (session('status'))
+    <div class="alert alert-success">
+		<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;{{ session('status') }}
+	</div>
+@endif
+
 <div id="filtro-usuarios">
 	<div class="panel panel-default">
 		<div class="panel-heading">Filtro de búsqueda de usuarios por fecha de creación</div>
@@ -66,7 +72,7 @@
 										</a>
 									</td>
 									<td>
-										<a href="/admin/usuario/{{$usuario->id}}" class="btn btn-primary" role="button" onclick="if(!confirm('Al borrar un usuario se borrarán sus subastas, preguntas, respuestas, ofertas y datos asociados. ¿Desea continuar?')){return false;};">
+										<a href="/admin/usuarios/del/{{$usuario->id}}" class="btn btn-primary" role="button" onclick="if(!confirm('Al borrar un usuario se borrarán sus subastas, preguntas, respuestas, ofertas y datos asociados. ¿Desea continuar?')){return false;};">
 											Borrar
 										</a>
 									</td>

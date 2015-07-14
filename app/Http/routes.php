@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin/subastas/del/{subasta}','SubastaController@delete');
     Route::get('admin/subastas/{subasta}/ofertas','ofertaController@indexAdmin');
     Route::get('admin/subastas/{subasta}/ofertas/del/{oferta}','ofertaController@delete');
-    Route::get('admin/usuario/{usuario}','UserController@edit');
+    Route::get('admin/usuario/{usuario}','UserController@showAdmin');
+    Route::get('admin/usuarios/del/{usuario}','UserController@delete');
 });
 
