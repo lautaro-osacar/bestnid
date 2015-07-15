@@ -87,9 +87,9 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(User $user)
 	{
-		//
+		return view('perfil.datos', compact('user'));
 	}
 
 	public function showAdmin(User $usuario){

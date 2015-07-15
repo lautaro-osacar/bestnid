@@ -77,10 +77,10 @@ Route::get('perfil/subastas','SubastaController@index');
 
 Route::get('perfil/subastas/{subasta}/ofertas','ofertaController@index');
 
-Route::get('perfil/datos',function(){
-    return view('perfil.datos');
-});
-
+Route::get('perfil/datos/{user}','UserController@show');
+Route::bind('user', function($id){
+        return App\User::where('id', $id)->first();
+ });
 Route::get('/busqueda', 'SubastaController@find');
 
 Route::get('subastas/{subasta}','SubastaController@show');
