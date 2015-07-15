@@ -9,7 +9,7 @@ class Subasta extends Model {
 	protected $fillable = ['categoria_id','titulo','descripcion','estado'];
 
 	public function usuario(){
-        return $this->belongsTo('App\Usuario','users','id');
+        return $this->belongsTo('App\User','user_id','id');
     }
 
     public function categoria(){
