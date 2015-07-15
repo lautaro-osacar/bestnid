@@ -67,7 +67,7 @@
 									<td class="estado">{{$subasta->estado}}</td>
 									<td><a href="/admin/subastas/{{$subasta->id}}/ofertas/" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 									<td>
-										{!! Form::open(['action'=>'SubastaController@delete','method'=>'POST']) !!}
+										{!! Form::open(['action'=>'SubastaController@deleteWithAJAX','method'=>'POST']) !!}
 											<div class="btn btn-primary borrar-subasta-btn" role="button">
 												Borrar
 											</div>
