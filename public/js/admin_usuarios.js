@@ -24,7 +24,9 @@ $(document).ready( function (){
 			//Mando por ajax la peticion al controlador
 			var data = {usuario_id:usuario_id,_token:$('meta[name="csrf_token"]').attr('content')};
 			$.post('/admin/usuarios/del',data,function(result){
-            	columna.fadeOut();
+            	columna.fadeOut("slow",function(){
+            		columna.replaceWith('<tr><td colspan="100%"><span class="glyphicon glyphicon-ok"></span>&nbsp;Usuario eliminado!</td></tr>');
+            	});
           	});
 		});
 	});

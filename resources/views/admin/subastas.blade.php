@@ -63,11 +63,11 @@
 							@foreach($subastas as $subasta)
 								<tr class="active" subasta="{{$subasta->id}}">
 									<td>{{$subasta->created_at}}</td>
-									<td><a href="/subasta/{{$subasta->id}}">{{$subasta->titulo}}</a></td>
+									<td id="titulo"><a href="/subasta/{{$subasta->id}}">{{$subasta->titulo}}</a></td>
 									<td class="estado">{{$subasta->estado}}</td>
 									<td><a href="/admin/subastas/{{$subasta->id}}/ofertas/" class="btn btn-primary" role="button">Ver Ofertas</a></td>
 									<td>
-										{!! Form::open(['action'=>'SubastaController@delete','method'=>'POST']) !!}
+										{!! Form::open(['action'=>'SubastaController@deleteWithAJAX','method'=>'POST']) !!}
 											<div class="btn btn-primary borrar-subasta-btn" role="button">
 												Borrar
 											</div>

@@ -4,6 +4,7 @@
 
 <script src="{{ asset('/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('/js/subasta_ofertas.js') }}"></script>
+<script src="{{ asset('/js/admin_subasta_ofertas.js') }}"></script>
 
 <style>
 .ofertas-table > tbody > tr > td {
@@ -53,14 +54,14 @@
 		@foreach($ofertas as $oferta)
 			<!--  si finalizo la subasta y la oferta es ganadora, aparece en color verde -->
 			@if($oferta->subasta->estado == 'F' AND $oferta->id == $oferta->subasta->oferta_ganadora)      
-				<tr class="success">
+				<tr class="success" oferta="{{$oferta->id}}">
 				<td>Ganadora</td>
 			<!--  si finalizo la subasta o esta inactiva aparece en gris¿?-->
 			@elseif($oferta->subasta->estado == 'F' OR $oferta->subasta->estado == 'I')   
-				<tr class="active">
+				<tr class="active" oferta="{{$oferta->id}}">
 				<td>No elegida</td>
 				@else
-					<tr>
+					<tr oferta="{{$oferta->id}}">
 						<td>Pendiente</td>
 			@endif
 				<td>{{$oferta->created_at}}</td>
@@ -71,7 +72,13 @@
     			</td>
 				<td>{{$oferta->monto}}</td>
 				<td>{{$oferta->user->email}}</td>
-				<td><center><a href="/admin/subastas/{{$subasta->id}}/ofertas/del/{{$oferta->id}}" class="btn btn-primary" role="button">Borrar</a></center></td>
+				<td>
+					{!! Form::open(['action'=>'ofertaController@deleteWithAJAX','method'=>'POST']) !!}
+						<div class="btn btn-primary borrar-oferta-btn" role="button">
+							Borrar
+						</div>
+					{!! Form::close() !!}
+				</td>
 
 
 			</tr>

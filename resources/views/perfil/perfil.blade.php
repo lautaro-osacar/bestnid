@@ -6,7 +6,7 @@
 
   <div id="navigation">
     <table class="table table-hover table-bordered menu-table">
-    	<tr><td><a class="link" href="{{ url('/perfil/datos') }}">Perfil</a></link></td></tr>
+    	<tr><td><a class="link" href="/perfil/datos/{{ Auth::user()->id }}">Perfil</a></link></td></tr>
     	<tr><td><a class="link" href="{{ url('/perfil/subastas') }}">Subastas</a></link></td></tr>
     	<tr><td><a class="link" href="{{ url('/perfil/ofertas') }}">Ofertas</a></link></td></tr>
    	</table>

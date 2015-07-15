@@ -95,7 +95,7 @@
   			</div>
 
   			<div class="form-group">
-    			<label for="name" class="col-md-3 control-label">Admin:</label>
+    			<label for="name" class="col-md-3 control-label">Es administrador:</label>
     			<div class="col-md-9">
       				<label class="form-control-static">
       					@if(isset($usuario->esAdmin->id))

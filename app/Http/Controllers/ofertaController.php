@@ -139,6 +139,11 @@ class ofertaController extends Controller {
 		return redirect('admin/subastas/'.$subasta->id.'/ofertas')->with('status','La oferta fue eliminada');
 	}
 
+	public function deleteWithAJAX(){
+		$oferta = Oferta::find(\Input::get('oferta_id'));
+		$this->destroy($oferta);
+	}
+
 
 	public function indexAdmin(Subasta $subasta)
 	{

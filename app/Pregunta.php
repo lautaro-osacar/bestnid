@@ -16,4 +16,8 @@ class Pregunta extends Model {
 		return $this->hasOne('App\Respuesta');
 	}
 
+	public function usuario(){
+        return $this->belongsTo('App\User','user_id','id');
+    }
+
 }
