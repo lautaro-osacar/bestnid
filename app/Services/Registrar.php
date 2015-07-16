@@ -37,11 +37,15 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{	
+		//Seteo el dia en la fecha de vencimiento de la tarjeta (primer dia del mes)
+		$fecha_venc = $data['fecha_vencimiento']."-01";
+		$fecha_venc = strtotime($fecha_venc);
+
 		$tarjeta = Tarjeta::create([
 			'nombre_propietario' => $data['nombre_propietario'],
 			'numero' => $data['tarjeta_numero'],
 			'codigo' => $data['card_code'],
-			'vencimiento' => $data['fecha_vencimiento']
+			'vencimiento' => date("Y-m-d",$fecha_venc)
 			]);
 
 		return User::create([
