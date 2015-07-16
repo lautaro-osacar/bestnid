@@ -37,7 +37,6 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{	
-		
 		$tarjeta = Tarjeta::create([
 			'nombre_propietario' => $data['nombre_propietario'],
 			'numero' => $data['tarjeta_numero'],
