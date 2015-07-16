@@ -67,7 +67,7 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/perfil/datos/{{ Auth::user()->id }}">Mi Perfil</a></li>
 								@if (Auth::user()->esAdmin)
-									<li><a href="{{ url('/admin/categorias') }}">Admin</a></li>	
+									<li><a href="{{ url('/admin/categorias') }}">Administración</a></li>	
 								@endif
 								<li><a href="{{ url('/auth/logout') }}">Cerrar sesión</a></li>
 							</ul>
